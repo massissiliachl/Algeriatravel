@@ -1,0 +1,226 @@
+export default function App() {
+    return (
+      <div>
+        {/* Navbar */}
+        <nav>
+          <h2>ALGERIA TRAVEL</h2>
+  
+          <div>
+            <a href="#hero">Accueil</a>
+            <a href="#tours">Circuits</a>
+            <a href="#map">Destinations</a>
+            <a href="#reviews">Avis</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+  
+        {/* Hero */}
+        <section id="hero">
+          <h1>
+            Là où le Sahara
+            <br />
+            rencontre la Mer
+          </h1>
+  
+          <p>
+            Explorez les dunes du Sahara, les villes historiques et les plus
+            belles destinations d'Algérie.
+          </p>
+  
+          <button>Découvrir nos circuits</button>
+        </section>
+  
+        {/* Recherche */}
+        <section>
+          <h2>Rechercher un voyage</h2>
+  
+          <select>
+            <option>Toutes destinations</option>
+            <option>Sahara</option>
+            <option>Nord</option>
+            <option>Oasis</option>
+          </select>
+  
+          <input type="date" />
+  
+          <input type="number" placeholder="Voyageurs" />
+  
+          <button>Rechercher</button>
+        </section>
+  
+        {/* Circuits */}
+        <section id="tours">
+          <h2>Nos Voyages</h2>
+  
+          <div>
+            <img
+              src="https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg"
+              alt="Sahara"
+              width="300"
+            />
+  
+            <h3>Sahara Oasis Trek</h3>
+  
+            <p>
+              Découvrez les dunes, les oasis et les nuits étoilées du Sahara.
+            </p>
+  
+            <p>8 jours</p>
+            <p>1190 €</p>
+          </div>
+  
+          <div>
+            <img
+              src="https://images.pexels.com/photos/1707958/pexels-photo-1707958.jpeg"
+              alt="Constantine"
+              width="300"
+            />
+  
+            <h3>Constantine & Gorges</h3>
+  
+            <p>
+              Explorez la ville des ponts suspendus et ses paysages uniques.
+            </p>
+  
+            <p>5 jours</p>
+            <p>850 €</p>
+          </div>
+  
+          <div>
+            <img
+              src="https://images.pexels.com/photos/3585320/pexels-photo-3585320.jpeg"
+              alt="Tipaza"
+              width="300"
+            />
+  
+            <h3>Trésors de Tipaza</h3>
+  
+            <p>
+              Visitez les ruines romaines au bord de la Méditerranée.
+            </p>
+  
+            <p>4 jours</p>
+            <p>690 €</p>
+          </div>
+        </section>
+  
+        {/* Détail Circuit */}
+        <section>
+          <h2>Sahara Oasis Trek & Djanet</h2>
+  
+          <img
+            src="https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg"
+            alt="Djanet"
+            width="500"
+          />
+  
+          <p>
+            Une immersion unique au cœur du Sahara avec guides locaux,
+            bivouacs et découvertes culturelles.
+          </p>
+  
+          <ul>
+            <li>Guide local francophone</li>
+            <li>Repas inclus</li>
+            <li>Bivouac sous les étoiles</li>
+            <li>Vols internes inclus</li>
+          </ul>
+  
+          <button>Réserver</button>
+        </section>
+  
+        {/* Itinéraire */}
+        <section>
+          <h2>Itinéraire</h2>
+  
+          <ul>
+            <li>Jour 1 - Arrivée à Alger</li>
+            <li>Jour 2 - Vol vers Djanet</li>
+            <li>Jour 3 - Trek Tassili</li>
+            <li>Jour 4 - Bivouac</li>
+            <li>Jour 5 - Retour</li>
+          </ul>
+        </section>
+  
+        {/* Carte */}
+        <section id="map">
+          <h2>Destinations</h2>
+  
+          <ul>
+            <li>🌊 Nord Littoral</li>
+            <li>🏜️ Oasis & Désert</li>
+            <li>⛰️ Grand Sud Saharien</li>
+          </ul>
+  
+          <div>
+            <h3>Carte Interactive Algérie</h3>
+          </div>
+        </section>
+  
+        {/* Avis */}
+        <section id="reviews">
+          <h2>Avis Clients</h2>
+  
+          <form>
+            <input type="text" placeholder="Votre nom" />
+  
+            <select>
+              <option>Choisissez un circuit</option>
+              <option>Sahara Oasis Trek</option>
+              <option>Constantine & Gorges</option>
+              <option>Trésors de Tipaza</option>
+            </select>
+  
+            <textarea placeholder="Votre avis"></textarea>
+  
+            <button type="submit">Publier</button>
+          </form>
+  
+          <div>
+            <h3>Sophie Martin</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Voyage exceptionnel dans le Sahara.</p>
+          </div>
+  
+          <div>
+            <h3>Thomas Bernard</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Constantine est magnifique.</p>
+          </div>
+        </section>
+  
+        {/* Visa */}
+        <section>
+          <h2>Visa Simplifié</h2>
+  
+          <div>
+            <h3>1. Invitation</h3>
+            <p>Certificat sous 48h</p>
+          </div>
+  
+          <div>
+            <h3>2. Embarquement</h3>
+            <p>Présentez votre lettre</p>
+          </div>
+  
+          <div>
+            <h3>3. Arrivée</h3>
+            <p>Visa délivré à l'aéroport</p>
+          </div>
+        </section>
+  
+        {/* Footer */}
+        <footer id="contact">
+          <h2>ALGERIA TRAVEL</h2>
+  
+          <p>contact@algeriatravel.dz</p>
+  
+          <p>+213 550 12 34 56</p>
+  
+          <input type="email" placeholder="Votre email" />
+  
+          <button>S'inscrire</button>
+        </footer>
+      </div>
+    );
+  }

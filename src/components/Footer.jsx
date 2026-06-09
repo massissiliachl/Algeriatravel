@@ -18,7 +18,7 @@ const Footer = () => {
             <h3 style={{ color: 'white', fontSize: '1.8rem' }}>
               ALGERIA <span style={{ color: 'var(--ocre)' }}>TRAVEL</span>
             </h3>
-            <p>contact@algeriatravel.dz<br />+213 550 12 34 56</p>
+            <p>Algeriatravel@gmail.com<br />00213 557 664 089</p>
             <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
               <a href="#"><i className="fab fa-facebook-f"></i></a>
               <a href="#"><i className="fab fa-instagram"></i></a>
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
         <hr style={{ margin: '40px 0 20px', borderColor: '#2a5a6e' }} />
         <p style={{ textAlign: 'center' }}>
-          © 2026 Algeria Travel — Design inspiré du Sahara et de la Méditerranée
+          © 2026 Algeria Travel 
         </p>
       </div>
     </footer>

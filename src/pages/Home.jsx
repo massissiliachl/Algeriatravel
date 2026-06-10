@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useState, useEffect, lazy, Suspense, useRef } from 'react';
+import React, { useState, useEffect, lazy, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Contact from '../components/Contact';
@@ -7,9 +7,7 @@ import { useLang } from '../hooks/useLangHook';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const AnimatedAlgeriaMap = lazy(() => import('../components/AnimatedAlgeriaMap'));
 
-// Données des circuits avec versions FR et EN
 const FEATURED_TOURS = [
   {
     id: 1,

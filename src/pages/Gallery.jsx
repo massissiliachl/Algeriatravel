@@ -11,68 +11,57 @@ const Gallery = () => {
   const [commentText, setCommentText] = useState('');
   const [galleryImages, setGalleryImages] = useState([]);
 
-  // Données initiales avec likes et commentaires
   const initImages = [
     {
       id: 1,
-      src: "https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg",
-      title: "Dunes du Grand Erg",
-      location: "Grand Erg Occidental",
-      description: "Coucher de soleil sur les dunes dorées du Sahara",
+      src: "/quad.jpeg",
+      title: "Randonnée en Quad",
+      location: "Sahara Algérien",
+      description: "Aventure en quad à travers les dunes du Sahara algérien",
       size: "large",
       likes: 234,
       dislikes: 12,
-      comments: [
-        { id: 1, user: "Sophie M.", text: "Magnifique !!! 😍", date: "2024-01-15", avatar: "https://randomuser.me/api/portraits/women/1.jpg" },
-        { id: 2, user: "Thomas L.", text: "Un paysage à couper le souffle", date: "2024-01-10", avatar: "https://randomuser.me/api/portraits/men/1.jpg" }
-      ]
+      comments: []
     },
     {
       id: 2,
-      src: "https://images.pexels.com/photos/3585320/pexels-photo-3585320.jpeg",
-      title: "Ruines de Tipaza",
-      location: "Tipaza",
-      description: "Vestiges romains face à la Méditerranée",
+      src: "/parasailinf.jpeg",
+      title: "Parachute Ascensionnel",
+      location: "Côte Algérienne",
+      description: "Vue panoramique exceptionnelle sur la mer Méditerranée",
       size: "medium",
       likes: 189,
       dislikes: 5,
-      comments: [
-        { id: 1, user: "Amira K.", text: "L'histoire à l'état pur", date: "2024-01-12", avatar: "https://randomuser.me/api/portraits/women/2.jpg" }
-      ]
+      comments: []
     },
     {
       id: 3,
-      src: "https://images.pexels.com/photos/2113861/pexels-photo-2113861.jpeg",
-      title: "Montagnes du Djurdjura",
-      location: "Tizi Ouzou",
-      description: "Panorama sur les montagnes de Kabylie",
+      src: "/i1.jpeg",
+      title: "Excursion en Quad",
+      location: "Algérie",
+      description: "Découverte des paysages désertiques lors d'une sortie en quad",
       size: "small",
       likes: 312,
       dislikes: 8,
-      comments: [
-        { id: 1, user: "Karim B.", text: "Ma région natale ! ❤️", date: "2024-01-08", avatar: "https://randomuser.me/api/portraits/men/2.jpg" },
-        { id: 2, user: "Julie R.", text: "Les couleurs sont incroyables", date: "2024-01-05", avatar: "https://randomuser.me/api/portraits/women/3.jpg" }
-      ]
+      comments: []
     },
     {
       id: 4,
-      src: "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
-      title: "Oasis de Timimoun",
-      location: "Timimoun",
-      description: "La rouge aux mille palmiers",
+      src: "/jetski.jpeg",
+      title: "Jet Ski",
+      location: "Béjaïa",
+      description: "Sensations fortes sur les eaux cristallines de la Méditerranée",
       size: "large",
       likes: 456,
       dislikes: 15,
-      comments: [
-        { id: 1, user: "Pierre D.", text: "Une oasis de rêve", date: "2024-01-14", avatar: "https://randomuser.me/api/portraits/men/3.jpg" }
-      ]
+      comments: []
     },
     {
       id: 5,
-      src: "https://images.pexels.com/photos/3875826/pexels-photo-3875826.jpeg",
-      title: "Casbah d'Alger",
-      location: "Alger",
-      description: "La blanche aux ruelles mystérieuses",
+      src: "/quad.jpeg",
+      title: "Aventure dans les Dunes",
+      location: "Algérie",
+      description: "Parcours en quad à travers les magnifiques dunes dorées",
       size: "medium",
       likes: 278,
       dislikes: 9,
@@ -80,10 +69,10 @@ const Gallery = () => {
     },
     {
       id: 6,
-      src: "https://images.pexels.com/photos/2641456/pexels-photo-2641456.jpeg",
-      title: "Village Perché",
-      location: "Beni Yenni",
-      description: "Architecture traditionnelle berbère",
+      src: "/image.png",
+      title: "Balade à Cheval",
+      location: "Béjaïa",
+      description: "Promenade à cheval au cœur des paysages naturels de Béjaïa",
       size: "small",
       likes: 167,
       dislikes: 6,
@@ -91,23 +80,21 @@ const Gallery = () => {
     },
     {
       id: 7,
-      src: "https://images.pexels.com/photos/417344/pexels-photo-417344.jpeg",
-      title: "Massif du Hoggar",
-      location: "Tamanrasset",
-      description: "Paysages lunaires du Hoggar",
+      src: "/i.jpg",
+      title: "Sortie en Bateau",
+      location: "Béjaïa",
+      description: "Excursion en bateau pour découvrir la côte et les criques de Béjaïa",
       size: "large",
       likes: 523,
       dislikes: 11,
-      comments: [
-        { id: 1, user: "Yannick F.", text: "Un endroit mythique !", date: "2024-01-13", avatar: "https://randomuser.me/api/portraits/men/4.jpg" }
-      ]
+      comments: []
     },
     {
       id: 8,
-      src: "https://images.pexels.com/photos/2614831/pexels-photo-2614831.jpeg",
-      title: "Baie d'Alger",
-      location: "Alger",
-      description: "La baie d'Alger au coucher du soleil",
+      src: "/quad1.jpeg",
+      title: "Circuit en Quad",
+      location: "Algérie",
+      description: "Expérience unique au cœur des paysages sahariens",
       size: "medium",
       likes: 198,
       dislikes: 4,
@@ -115,10 +102,10 @@ const Gallery = () => {
     },
     {
       id: 9,
-      src: "https://images.pexels.com/photos/2968982/pexels-photo-2968982.jpeg",
-      title: "Forêt de cèdres",
-      location: "Djurdjura",
-      description: "Forêts millénaires de Kabylie",
+      src: "/vol parapente.jpg",
+      title: "Vol en Parapente",
+      location: "Béjaïa",
+      description: "Admirez les paysages de Béjaïa depuis les airs",
       size: "small",
       likes: 145,
       dislikes: 3,
@@ -126,10 +113,10 @@ const Gallery = () => {
     },
     {
       id: 10,
-      src: "https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg",
-      title: "Dunes au crépuscule",
-      location: "Djanet",
-      description: "Moment magique sur les dunes",
+      src: "/grotte.jpg",
+      title: "Grottes de Béjaïa",
+      location: "Béjaïa",
+      description: "Découverte des magnifiques grottes naturelles de Béjaïa",
       size: "large",
       likes: 345,
       dislikes: 7,
@@ -137,10 +124,10 @@ const Gallery = () => {
     },
     {
       id: 11,
-      src: "https://images.pexels.com/photos/2422265/pexels-photo-2422265.jpeg",
-      title: "Port de pêche",
-      location: "Cherchell",
-      description: "Vie maritime authentique",
+      src: "/dj.jpeg",
+      title: "Ferme de Djerba",
+      location: "Tazeboujt - Béjaïa",
+      description: "Ferme touristique offrant un cadre naturel paisible et authentique",
       size: "medium",
       likes: 156,
       dislikes: 2,
@@ -148,17 +135,18 @@ const Gallery = () => {
     },
     {
       id: 12,
-      src: "https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg",
-      title: "Vallée verdoyante",
-      location: "Kabylie",
-      description: "Nature préservée de Kabylie",
+      src: "/paddle.jpeg",
+      title: "Paddle en Mer",
+      location: "Béjaïa",
+      description: "Activité paddle sur les eaux turquoise de la côte béjaouie",
       size: "small",
       likes: 234,
       dislikes: 5,
-      comments: []
-    }
+      comments: [
+        { id: 1, user: "Lilia Ben.", text: "Magnifique !!! 😍", date: "2024-01-15", avatar: "[randomuser.me](https://randomuser.me/api/portraits/women/1.jpg)" },
+        { id: 2, user: "Yanis L.", text: "Un paysage a couper le souffle", date: "2024-01-10", avatar: "[randomuser.me](https://randomuser.me/api/portraits/men/1.jpg)" }
+      ]    }
   ];
-
   useEffect(() => {
     const savedGallery = localStorage.getItem('gallery_interactions');
     if (savedGallery) {
@@ -167,7 +155,13 @@ const Gallery = () => {
       setGalleryImages(initImages);
       localStorage.setItem('gallery_interactions', JSON.stringify(initImages));
     }
-    AOS.init({ duration: 800, once: true, offset: 50 });
+
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 40,
+      easing: 'ease-out-cubic'
+    });
   }, []);
 
   const saveInteractions = useCallback((updatedImages) => {
@@ -176,14 +170,14 @@ const Gallery = () => {
   }, []);
 
   const handleLike = useCallback((imageId) => {
-    const updatedImages = galleryImages.map(img => 
+    const updatedImages = galleryImages.map((img) =>
       img.id === imageId ? { ...img, likes: img.likes + 1 } : img
     );
     saveInteractions(updatedImages);
   }, [galleryImages, saveInteractions]);
 
   const handleDislike = useCallback((imageId) => {
-    const updatedImages = galleryImages.map(img => 
+    const updatedImages = galleryImages.map((img) =>
       img.id === imageId ? { ...img, dislikes: img.dislikes + 1 } : img
     );
     saveInteractions(updatedImages);
@@ -191,66 +185,102 @@ const Gallery = () => {
 
   const handleAddComment = useCallback((imageId) => {
     if (!commentText.trim()) return;
-    
     const newComment = {
       id: Date.now(),
       user: "Voyageur",
-      text: commentText,
+      text: commentText.trim(),
       date: new Date().toISOString().split('T')[0],
       avatar: `https://randomuser.me/api/portraits/lego/${Math.floor(Math.random() * 10)}.jpg`
     };
-    
-    const updatedImages = galleryImages.map(img => 
+    const updatedImages = galleryImages.map((img) =>
       img.id === imageId ? { ...img, comments: [newComment, ...img.comments] } : img
     );
+
     saveInteractions(updatedImages);
     setCommentText('');
   }, [commentText, galleryImages, saveInteractions]);
 
   const handleImageLoad = (id) => {
-    setLoadedImages(prev => ({ ...prev, [id]: true }));
+    setLoadedImages((prev) => ({ ...prev, [id]: true }));
   };
 
-  const currentImage = selectedImage ? galleryImages.find(img => img.id === selectedImage.id) : null;
+  const currentImage = selectedImage
+    ? galleryImages.find((img) => img.id === selectedImage.id)
+    : null;
+
+  const currentIndex = selectedImage
+    ? galleryImages.findIndex((img) => img.id === selectedImage.id)
+    : -1;
 
   return (
     <>
       <Navbar />
-      
+
       <section className="gallery-hero">
+        <div className="gallery-hero-bg"></div>
         <div className="gallery-hero-overlay"></div>
-        <div className="gallery-hero-content" data-aos="fade-up">
-          <h1>Galerie <span className="text-gold">Photographique</span></h1>
-          <p>Découvrez la beauté de l'Algérie à travers l'objectif</p>
-          <div className="gallery-hero-stats">
-            <span><i className="fas fa-image"></i> {galleryImages.length}+ Photos</span>
-            <span><i className="fas fa-heart"></i> {galleryImages.reduce((sum, img) => sum + img.likes, 0)} Likes</span>
-            <span><i className="fas fa-comment"></i> {galleryImages.reduce((sum, img) => sum + img.comments.length, 0)} Commentaires</span>
+        <div className="gallery-hero-glow glow-1"></div>
+        <div className="gallery-hero-glow glow-2"></div>
+
+        <div className="container">
+          <div className="gallery-hero-content" data-aos="fade-up">
+            <span className="hero-badge">Explorez l'Algerie autrement</span>
+            <h1>
+              Galerie <span className="text-gold">Photographique</span>
+            </h1>
+            <p>
+              Une immersion visuelle a travers les paysages, les villes et les
+              tresors naturels de l'Algerie.
+            </p>
+
+            <div className="gallery-hero-stats">
+              <span>
+                <i className="fas fa-image"></i>
+                {galleryImages.length}+ Photos
+              </span>
+              <span>
+                <i className="fas fa-heart"></i>
+                {galleryImages.reduce((sum, img) => sum + img.likes, 0)} Likes
+              </span>
+              <span>
+                <i className="fas fa-comment"></i>
+                {galleryImages.reduce((sum, img) => sum + img.comments.length, 0)} Commentaires
+              </span>
+            </div>
           </div>
         </div>
+
         <div className="hero-scroll-hint">
-          <span>Scroller pour découvrir</span>
+          <span>Scroller pour decouvrir</span>
           <i className="fas fa-chevron-down"></i>
         </div>
       </section>
 
-      {/* Masonry Gallery Grid */}
       <section className="gallery-section">
         <div className="container">
+          <div className="section-heading" data-aos="fade-up">
+            <span className="section-kicker">Collection visuelle</span>
+            <h2>Moments captures a travers le pays</h2>
+            <p>
+              Une selection d'instants uniques entre desert, mer, patrimoine et montagnes.
+            </p>
+          </div>
+
           <div className="masonry-grid">
             {galleryImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`masonry-item ${image.size} ${!loadedImages[image.id] ? 'loading' : ''}`}
                 data-aos="fade-up"
-                data-aos-delay={50 * (index % 6)}
+                data-aos-delay={60 * (index % 6)}
                 onClick={() => setSelectedImage(image)}
               >
                 {!loadedImages[image.id] && (
                   <div className="masonry-item-loader">
-                    <i className="fas fa-spinner fa-spin"></i>
+                    <div className="loader-ring"></div>
                   </div>
                 )}
+
                 <img
                   src={image.src}
                   alt={image.title}
@@ -258,14 +288,24 @@ const Gallery = () => {
                   onLoad={() => handleImageLoad(image.id)}
                   style={{ opacity: loadedImages[image.id] ? 1 : 0 }}
                 />
+
                 <div className="masonry-item-overlay">
+                  <div className="masonry-top-tag">{image.location}</div>
+
                   <div className="masonry-item-info">
-                    <h3>{image.title}</h3>
-                    <p><i className="fas fa-map-marker-alt"></i> {image.location}</p>
-                  </div>
-                  <div className="masonry-item-stats">
-                    <span><i className="fas fa-heart"></i> {image.likes}</span>
-                    <span><i className="fas fa-comment"></i> {image.comments.length}</span>
+                    <div>
+                      <h3>{image.title}</h3>
+                      <p>{image.description}</p>
+                    </div>
+
+                    <div className="masonry-item-stats">
+                      <span>
+                        <i className="fas fa-heart"></i> {image.likes}
+                      </span>
+                      <span>
+                        <i className="fas fa-comment"></i> {image.comments.length}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -274,61 +314,70 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Lightbox avec interactions */}
       {selectedImage && currentImage && (
         <div className="lightbox" onClick={() => setSelectedImage(null)}>
-          <button className="lightbox-close" onClick={() => setSelectedImage(null)}>
+          <button
+            className="lightbox-close"
+            onClick={() => setSelectedImage(null)}
+          >
             <i className="fas fa-times"></i>
           </button>
-          
-          <button 
-            className="lightbox-nav lightbox-prev" 
+
+          <button
+            className="lightbox-nav lightbox-prev"
             onClick={(e) => {
               e.stopPropagation();
-              const currentIndex = galleryImages.findIndex(i => i.id === selectedImage.id);
               const prevIndex = currentIndex > 0 ? currentIndex - 1 : galleryImages.length - 1;
               setSelectedImage(galleryImages[prevIndex]);
             }}
           >
             <i className="fas fa-chevron-left"></i>
           </button>
-          
+
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <div className="lightbox-image">
               <img src={currentImage.src} alt={currentImage.title} />
             </div>
-            
+
             <div className="lightbox-details">
               <div className="lightbox-header">
                 <div>
+                  <span className="lightbox-chip">{currentImage.location}</span>
                   <h2>{currentImage.title}</h2>
-                  <p className="lightbox-location">
-                    <i className="fas fa-map-marker-alt"></i> {currentImage.location}
-                  </p>
+                  <p className="lightbox-description">{currentImage.description}</p>
                 </div>
+
                 <div className="lightbox-actions">
-                  <button className="action-btn like-btn" onClick={() => handleLike(currentImage.id)}>
+                  <button
+                    className="action-btn like-btn"
+                    onClick={() => handleLike(currentImage.id)}
+                  >
                     <i className="fas fa-heart"></i> {currentImage.likes}
                   </button>
-                  <button className="action-btn dislike-btn" onClick={() => handleDislike(currentImage.id)}>
+
+                  <button
+                    className="action-btn dislike-btn"
+                    onClick={() => handleDislike(currentImage.id)}
+                  >
                     <i className="fas fa-thumbs-down"></i> {currentImage.dislikes}
                   </button>
                 </div>
               </div>
-              
-              <p className="lightbox-description">{currentImage.description}</p>
-              
-              <div className="lightbox-comments">
-                <h3><i className="fas fa-comments"></i> Commentaires ({currentImage.comments.length})</h3>
-                
+
+              <div className="comments-card">
+                <h3>
+                  <i className="fas fa-comments"></i>
+                  Commentaires ({currentImage.comments.length})
+                </h3>
+
                 <div className="add-comment">
                   <textarea
                     placeholder="Partagez votre avis..."
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
-                    rows="2"
+                    rows="3"
                   />
-                  <button 
+                  <button
                     className="send-comment"
                     onClick={() => handleAddComment(currentImage.id)}
                     disabled={!commentText.trim()}
@@ -336,17 +385,22 @@ const Gallery = () => {
                     Envoyer <i className="fas fa-paper-plane"></i>
                   </button>
                 </div>
-                
+
                 <div className="comments-list">
                   {currentImage.comments.length === 0 ? (
                     <div className="no-comments">
                       <i className="fas fa-comment-dots"></i>
-                      <p>Soyez le premier à commenter !</p>
+                      <p>Soyez le premier a commenter !</p>
                     </div>
                   ) : (
-                    currentImage.comments.map(comment => (
+                    currentImage.comments.map((comment) => (
                       <div key={comment.id} className="comment-item">
-                        <img src={comment.avatar} alt={comment.user} className="comment-avatar" />
+                        <img
+                          src={comment.avatar}
+                          alt={comment.user}
+                          className="comment-avatar"
+                        />
+
                         <div className="comment-content">
                           <div className="comment-header">
                             <strong>{comment.user}</strong>
@@ -361,21 +415,20 @@ const Gallery = () => {
               </div>
             </div>
           </div>
-          
-          <button 
-            className="lightbox-nav lightbox-next" 
+
+          <button
+            className="lightbox-nav lightbox-next"
             onClick={(e) => {
               e.stopPropagation();
-              const currentIndex = galleryImages.findIndex(i => i.id === selectedImage.id);
               const nextIndex = currentIndex < galleryImages.length - 1 ? currentIndex + 1 : 0;
               setSelectedImage(galleryImages[nextIndex]);
             }}
           >
             <i className="fas fa-chevron-right"></i>
           </button>
-          
+
           <div className="lightbox-counter">
-            {galleryImages.findIndex(i => i.id === selectedImage.id) + 1} / {galleryImages.length}
+            {currentIndex + 1} / {galleryImages.length}
           </div>
         </div>
       )}
@@ -390,101 +443,156 @@ const Gallery = () => {
         }
 
         :root {
-          --gold: #c6a43b;
-          --gold-dark: #a07d2c;
-          --dark: #111111;
-          --dark-gray: #1a1a1a;
-          --gray: #666666;
-          --light-gray: #f5f5f5;
+          --gold: #d4af37;
+          --gold-dark: #a67c1f;
+          --gold-soft: rgba(212, 175, 55, 0.16);
+          --dark: #0b0b0f;
+          --dark-2: #12131a;
+          --dark-3: #191b24;
+          --gray: #8c8f99;
+          --gray-soft: #c7cad1;
+          --light: #f7f7f9;
           --white: #ffffff;
-          --red: #e74c3c;
+          --red: #ff5b6e;
+          --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.28);
+          --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.18);
+          --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          color: var(--dark);
-          background: var(--white);
+          color: var(--white);
+          background:
+            radial-gradient(circle at top left, rgba(212,175,55,0.06), transparent 25%),
+            linear-gradient(180deg, #0b0b0f 0%, #101118 100%);
         }
 
         .container {
-          max-width: 1600px;
+          width: min(100%, 1440px);
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 24px;
         }
 
         .text-gold {
           color: var(--gold);
         }
 
-        /* Hero Section */
         .gallery-hero {
           position: relative;
-          height: 50vh;
-          min-height: 400px;
-          background: linear-gradient(135deg, var(--dark), var(--dark-gray));
+          min-height: 78vh;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          text-align: center;
           overflow: hidden;
+          isolation: isolate;
         }
 
-        .gallery-hero::before {
-          content: '';
+        .gallery-hero-bg {
           position: absolute;
           inset: 0;
-          background: url('https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg') center/cover;
-          opacity: 0.15;
-          animation: zoomBg 30s ease infinite;
-        }
-
-        @keyframes zoomBg {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.08); }
+          background:
+            linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)),
+            url('[images.pexels.com](https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg)') center/cover no-repeat;
+          transform: scale(1.08);
+          animation: heroZoom 24s ease-in-out infinite;
         }
 
         .gallery-hero-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+          background:
+            radial-gradient(circle at 20% 30%, rgba(212,175,55,0.16), transparent 28%),
+            linear-gradient(135deg, rgba(11,11,15,0.55), rgba(11,11,15,0.88));
+          z-index: 1;
+        }
+
+        .gallery-hero-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          z-index: 1;
+        }
+
+        .glow-1 {
+          width: 220px;
+          height: 220px;
+          background: rgba(212,175,55,0.16);
+          top: 12%;
+          left: 10%;
+        }
+
+        .glow-2 {
+          width: 260px;
+          height: 260px;
+          background: rgba(255,255,255,0.06);
+          right: 8%;
+          bottom: 12%;
+        }
+
+        @keyframes heroZoom {
+          0%, 100% { transform: scale(1.06); }
+          50% { transform: scale(1.12); }
         }
 
         .gallery-hero-content {
           position: relative;
-          z-index: 1;
-          color: var(--white);
-          padding: 0 24px;
+          z-index: 2;
+          max-width: 860px;
+          text-align: center;
+          margin: 0 auto;
+          padding-top: 40px;
+        }
+
+        .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 18px;
+          border: 1px solid rgba(255,255,255,0.16);
+          background: rgba(255,255,255,0.08);
+          backdrop-filter: blur(14px);
+          color: var(--gray-soft);
+          border-radius: 999px;
+          font-size: 0.85rem;
+          margin-bottom: 22px;
+          box-shadow: var(--shadow-md);
         }
 
         .gallery-hero-content h1 {
-          font-size: 3.5rem;
-          font-weight: 700;
-          margin-bottom: 16px;
+          font-size: clamp(2.6rem, 6vw, 5.4rem);
+          line-height: 1.02;
+          letter-spacing: -0.03em;
+          font-weight: 800;
+          margin-bottom: 18px;
         }
 
         .gallery-hero-content p {
-          font-size: 1.125rem;
-          opacity: 0.9;
-          margin-bottom: 32px;
+          font-size: clamp(1rem, 2vw, 1.15rem);
+          line-height: 1.75;
+          color: rgba(255,255,255,0.78);
+          max-width: 700px;
+          margin: 0 auto 34px;
         }
 
         .gallery-hero-stats {
           display: flex;
           justify-content: center;
-          gap: 24px;
           flex-wrap: wrap;
+          gap: 14px;
         }
 
         .gallery-hero-stats span {
-          font-size: 13px;
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 8px 18px;
-          background: rgba(255,255,255,0.1);
-          border-radius: 40px;
-          backdrop-filter: blur(10px);
+          gap: 10px;
+          padding: 12px 18px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.12);
+          backdrop-filter: blur(12px);
+          color: var(--white);
+          font-size: 0.92rem;
+          box-shadow: var(--shadow-md);
         }
 
         .gallery-hero-stats i {
@@ -493,18 +601,17 @@ const Gallery = () => {
 
         .hero-scroll-hint {
           position: absolute;
-          bottom: 30px;
+          bottom: 28px;
           left: 50%;
           transform: translateX(-50%);
-          color: var(--white);
+          z-index: 2;
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 8px;
-          font-size: 11px;
-          opacity: 0.7;
+          color: rgba(255,255,255,0.72);
+          font-size: 0.78rem;
           animation: bounce 2s infinite;
-          z-index: 2;
         }
 
         @keyframes bounce {
@@ -512,33 +619,68 @@ const Gallery = () => {
           50% { transform: translateX(-50%) translateY(8px); }
         }
 
-        /* Masonry Gallery - Desktop 4 colonnes */
         .gallery-section {
-          padding: 50px 0 80px;
-          background: var(--light-gray);
+          position: relative;
+          padding: 90px 0 100px;
+          background:
+            radial-gradient(circle at top center, rgba(212,175,55,0.06), transparent 30%),
+            linear-gradient(180deg, #11131a 0%, #0d0f15 100%);
+        }
+
+        .section-heading {
+          text-align: center;
+          max-width: 760px;
+          margin: 0 auto 46px;
+        }
+
+        .section-kicker {
+          display: inline-block;
+          color: var(--gold);
+          font-size: 0.82rem;
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+          margin-bottom: 12px;
+          font-weight: 700;
+        }
+
+        .section-heading h2 {
+          font-size: clamp(1.9rem, 4vw, 3rem);
+          margin-bottom: 14px;
+          color: var(--white);
+        }
+
+        .section-heading p {
+          color: rgba(255,255,255,0.66);
+          line-height: 1.8;
+          font-size: 1rem;
         }
 
         .masonry-grid {
           column-count: 4;
-          column-gap: 20px;
+          column-gap: 22px;
         }
 
         .masonry-item {
           position: relative;
           break-inside: avoid;
-          margin-bottom: 20px;
-          border-radius: 16px;
+          margin-bottom: 22px;
+          border-radius: 24px;
           overflow: hidden;
           cursor: pointer;
-          background: #e0e0e0;
-          transition: all 0.3s ease;
+          background: #1d1f28;
+          border: 1px solid rgba(255,255,255,0.06);
+          box-shadow: var(--shadow-lg);
+          transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .masonry-item:hover {
+          transform: translateY(-8px);
+          border-color: rgba(212,175,55,0.28);
+          box-shadow: 0 26px 60px rgba(0,0,0,0.35);
         }
 
         .masonry-item.loading {
-          min-height: 180px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          min-height: 220px;
         }
 
         .masonry-item-loader {
@@ -547,280 +689,266 @@ const Gallery = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: var(--light-gray);
-          z-index: 1;
+          background:
+            linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+          z-index: 2;
         }
 
-        .masonry-item-loader i {
-          font-size: 28px;
-          color: var(--gold);
+        .loader-ring {
+          width: 42px;
+          height: 42px;
+          border: 3px solid rgba(255,255,255,0.15);
+          border-top-color: var(--gold);
+          border-radius: 50%;
+          animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
         }
 
         .masonry-item img {
           width: 100%;
           height: auto;
           display: block;
-          transition: transform 0.4s ease;
+          transition: transform 0.55s ease, filter 0.4s ease, opacity 0.4s ease;
         }
 
         .masonry-item:hover img {
-          transform: scale(1.02);
+          transform: scale(1.05);
+          filter: brightness(0.92);
         }
 
-        /* Tailles variables qui s'adaptent automatiquement */
         .masonry-item.small img {
-          min-height: 180px;
+          min-height: 220px;
+          object-fit: cover;
         }
 
         .masonry-item.medium img {
-          min-height: 260px;
+          min-height: 310px;
+          object-fit: cover;
         }
 
         .masonry-item.large img {
-          min-height: 340px;
+          min-height: 430px;
+          object-fit: cover;
         }
 
         .masonry-item-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+          padding: 18px;
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
-          align-items: flex-end;
-          padding: 14px;
+          background:
+            linear-gradient(to top, rgba(8,8,10,0.92) 8%, rgba(8,8,10,0.15) 52%, rgba(8,8,10,0.06) 100%);
           opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: opacity 0.35s ease;
         }
 
         .masonry-item:hover .masonry-item-overlay {
           opacity: 1;
         }
 
-        .masonry-item-info h3 {
+        .masonry-top-tag {
+          align-self: flex-start;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.14);
           color: var(--white);
-          font-size: 0.95rem;
-          margin-bottom: 4px;
-          font-weight: 600;
+          font-size: 0.78rem;
+        }
+
+        .masonry-item-info h3 {
+          font-size: 1.15rem;
+          color: var(--white);
+          margin-bottom: 8px;
         }
 
         .masonry-item-info p {
-          color: rgba(255,255,255,0.8);
-          font-size: 10px;
-        }
-
-        .masonry-item-info i {
-          margin-right: 4px;
-          font-size: 9px;
+          color: rgba(255,255,255,0.72);
+          font-size: 0.9rem;
+          line-height: 1.5;
+          margin-bottom: 14px;
         }
 
         .masonry-item-stats {
           display: flex;
-          gap: 10px;
+          gap: 16px;
+          align-items: center;
         }
 
         .masonry-item-stats span {
-          color: var(--white);
-          font-size: 11px;
-          display: flex;
+          display: inline-flex;
           align-items: center;
-          gap: 4px;
+          gap: 6px;
+          color: var(--white);
+          font-size: 0.85rem;
+          padding: 8px 12px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .masonry-item-stats i.fa-heart {
+        .masonry-item-stats .fa-heart {
           color: var(--red);
         }
 
-        /* Lightbox */
         .lightbox {
           position: fixed;
           inset: 0;
-          background: rgba(0,0,0,0.95);
-          z-index: 1000;
+          z-index: 2000;
+          background: rgba(3, 4, 8, 0.78);
+          backdrop-filter: blur(16px);
           display: flex;
           align-items: center;
           justify-content: center;
-          backdrop-filter: blur(20px);
-        }
-
-        .lightbox-close {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          width: 44px;
-          height: 44px;
-          background: rgba(255,255,255,0.1);
-          border: none;
-          border-radius: 50%;
-          color: var(--white);
-          font-size: 20px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1001;
-        }
-
-        .lightbox-close:hover {
-          background: var(--gold);
-          transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 48px;
-          height: 48px;
-          background: rgba(255,255,255,0.1);
-          border: none;
-          border-radius: 50%;
-          color: var(--white);
-          font-size: 18px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1001;
-        }
-
-        .lightbox-prev { left: 20px; }
-        .lightbox-next { right: 20px; }
-
-        .lightbox-nav:hover {
-          background: var(--gold);
+          padding: 24px;
         }
 
         .lightbox-content {
-          display: flex;
-          gap: 24px;
-          max-width: 1200px;
-          width: 90vw;
-          max-height: 85vh;
-          background: var(--dark-gray);
-          border-radius: 20px;
+          display: grid;
+          grid-template-columns: 1.3fr 0.9fr;
+          width: min(1320px, 100%);
+          max-height: 92vh;
+          border-radius: 28px;
           overflow: hidden;
+          background: rgba(17, 19, 26, 0.92);
+          border: 1px solid rgba(255,255,255,0.08);
+          box-shadow: 0 30px 80px rgba(0,0,0,0.45);
         }
 
         .lightbox-image {
-          flex: 1.4;
+          background:
+            radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 45%),
+            #090a0f;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #000;
+          padding: 24px;
         }
 
         .lightbox-image img {
           width: 100%;
-          height: auto;
           max-height: 85vh;
           object-fit: contain;
+          border-radius: 20px;
+          box-shadow: 0 12px 40px rgba(0,0,0,0.35);
         }
 
         .lightbox-details {
-          flex: 1;
-          padding: 24px;
+          padding: 28px;
           color: var(--white);
-          display: flex;
-          flex-direction: column;
           overflow-y: auto;
-          max-height: 85vh;
+          background:
+            linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
         }
 
-        .lightbox-details::-webkit-scrollbar {
-          width: 4px;
+        .lightbox-details::-webkit-scrollbar,
+        .comments-list::-webkit-scrollbar {
+          width: 6px;
         }
 
-        .lightbox-details::-webkit-scrollbar-track {
-          background: rgba(255,255,255,0.1);
-          border-radius: 4px;
-        }
-
-        .lightbox-details::-webkit-scrollbar-thumb {
-          background: var(--gold);
-          border-radius: 4px;
+        .lightbox-details::-webkit-scrollbar-thumb,
+        .comments-list::-webkit-scrollbar-thumb {
+          background: rgba(212,175,55,0.55);
+          border-radius: 999px;
         }
 
         .lightbox-header {
           display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 16px;
-          flex-wrap: wrap;
-          gap: 16px;
+          flex-direction: column;
+          gap: 18px;
+          margin-bottom: 24px;
+        }
+
+        .lightbox-chip {
+          display: inline-block;
+          padding: 8px 14px;
+          margin-bottom: 14px;
+          border-radius: 999px;
+          background: var(--gold-soft);
+          border: 1px solid rgba(212,175,55,0.24);
+          color: var(--gold);
+          font-size: 0.82rem;
+          font-weight: 700;
         }
 
         .lightbox-header h2 {
-          font-size: 1.4rem;
-          margin-bottom: 6px;
+          font-size: 2rem;
+          line-height: 1.15;
+          margin-bottom: 10px;
         }
 
-        .lightbox-location {
-          color: var(--gold);
-          font-size: 12px;
-        }
-
-        .lightbox-location i {
-          margin-right: 6px;
+        .lightbox-description {
+          color: rgba(255,255,255,0.7);
+          line-height: 1.8;
+          font-size: 0.98rem;
         }
 
         .lightbox-actions {
           display: flex;
-          gap: 10px;
+          gap: 12px;
+          flex-wrap: wrap;
         }
 
         .action-btn {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          padding: 8px 14px;
           border: none;
-          border-radius: 40px;
+          border-radius: 999px;
+          padding: 12px 18px;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.92rem;
+          font-weight: 700;
           cursor: pointer;
-          font-size: 13px;
-          font-weight: 500;
-          transition: all 0.3s ease;
+          transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
+
+        .action-btn:hover {
+          transform: translateY(-2px);
         }
 
         .like-btn {
-          background: rgba(231, 76, 60, 0.2);
-          color: var(--red);
+          background: rgba(255, 91, 110, 0.14);
+          color: #ff8a98;
+          border: 1px solid rgba(255, 91, 110, 0.2);
         }
 
         .like-btn:hover {
-          background: var(--red);
-          color: white;
+          background: rgba(255, 91, 110, 0.22);
         }
 
         .dislike-btn {
-          background: rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.08);
           color: var(--white);
+          border: 1px solid rgba(255,255,255,0.1);
         }
 
         .dislike-btn:hover {
-          background: rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.15);
         }
 
-        .lightbox-description {
-          color: rgba(255,255,255,0.8);
-          font-size: 13px;
-          line-height: 1.6;
-          margin-bottom: 20px;
-          padding-bottom: 16px;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
+        .comments-card {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 22px;
+          padding: 20px;
         }
 
-        .lightbox-comments {
-          flex: 1;
-        }
-
-        .lightbox-comments h3 {
-          font-size: 0.95rem;
-          margin-bottom: 14px;
+        .comments-card h3 {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
+          font-size: 1rem;
+          margin-bottom: 18px;
+        }
+
+        .comments-card h3 i {
+          color: var(--gold);
         }
 
         .add-comment {
@@ -829,86 +957,85 @@ const Gallery = () => {
 
         .add-comment textarea {
           width: 100%;
-          padding: 10px;
-          background: rgba(255,255,255,0.1);
-          border: 1px solid rgba(255,255,255,0.2);
-          border-radius: 10px;
+          padding: 14px 16px;
+          border-radius: 16px;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.06);
           color: var(--white);
+          font-size: 0.95rem;
           font-family: inherit;
-          font-size: 12px;
           resize: vertical;
-          margin-bottom: 8px;
+          min-height: 96px;
+          transition: border-color 0.25s ease, background 0.25s ease;
         }
 
         .add-comment textarea:focus {
           outline: none;
-          border-color: var(--gold);
+          border-color: rgba(212,175,55,0.5);
+          background: rgba(255,255,255,0.08);
         }
 
         .add-comment textarea::placeholder {
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.42);
         }
 
         .send-comment {
-          padding: 8px 18px;
-          background: var(--gold);
+          margin-top: 10px;
           border: none;
-          border-radius: 40px;
-          color: var(--white);
-          font-weight: 600;
-          font-size: 12px;
+          border-radius: 999px;
+          padding: 11px 18px;
+          background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+          color: #fff;
+          font-weight: 700;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+          box-shadow: 0 10px 24px rgba(212,175,55,0.22);
         }
 
         .send-comment:hover:not(:disabled) {
-          background: var(--gold-dark);
           transform: translateY(-2px);
         }
 
         .send-comment:disabled {
-          opacity: 0.5;
+          opacity: 0.55;
           cursor: not-allowed;
+          box-shadow: none;
         }
 
         .comments-list {
-          max-height: 280px;
+          max-height: 320px;
           overflow-y: auto;
-        }
-
-        .comments-list::-webkit-scrollbar {
-          width: 4px;
+          padding-right: 4px;
         }
 
         .no-comments {
           text-align: center;
-          padding: 30px;
+          padding: 28px 14px;
           color: rgba(255,255,255,0.5);
         }
 
         .no-comments i {
-          font-size: 36px;
+          font-size: 2rem;
           margin-bottom: 10px;
-        }
-
-        .no-comments p {
-          font-size: 12px;
+          color: rgba(212,175,55,0.7);
         }
 
         .comment-item {
           display: flex;
-          gap: 10px;
-          margin-bottom: 14px;
-          padding: 10px;
+          gap: 12px;
+          padding: 14px;
+          border-radius: 16px;
           background: rgba(255,255,255,0.05);
-          border-radius: 10px;
+          border: 1px solid rgba(255,255,255,0.05);
+          margin-bottom: 12px;
         }
 
         .comment-avatar {
-          width: 32px;
-          height: 32px;
+          width: 42px;
+          height: 42px;
           border-radius: 50%;
           object-fit: cover;
+          border: 2px solid rgba(255,255,255,0.12);
         }
 
         .comment-content {
@@ -919,144 +1046,229 @@ const Gallery = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 4px;
+          gap: 10px;
           flex-wrap: wrap;
-          gap: 6px;
+          margin-bottom: 6px;
         }
 
         .comment-header strong {
-          font-size: 12px;
+          font-size: 0.95rem;
+          color: var(--white);
         }
 
         .comment-date {
-          font-size: 9px;
-          color: rgba(255,255,255,0.5);
+          font-size: 0.78rem;
+          color: rgba(255,255,255,0.48);
         }
 
         .comment-content p {
-          font-size: 11px;
-          line-height: 1.4;
-          color: rgba(255,255,255,0.8);
+          color: rgba(255,255,255,0.74);
+          line-height: 1.6;
+          font-size: 0.92rem;
+        }
+
+        .lightbox-close,
+        .lightbox-nav {
+          position: absolute;
+          z-index: 2001;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: var(--white);
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.12);
+          backdrop-filter: blur(12px);
+          transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-nav:hover {
+          transform: scale(1.06);
+          background: rgba(212,175,55,0.22);
+        }
+
+        .lightbox-close {
+          top: 22px;
+          right: 22px;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          font-size: 1rem;
+        }
+
+        .lightbox-nav {
+          top: 50%;
+          transform: translateY(-50%);
+          width: 52px;
+          height: 52px;
+          border-radius: 50%;
+          font-size: 1rem;
+        }
+
+        .lightbox-prev {
+          left: 26px;
+        }
+
+        .lightbox-next {
+          right: 26px;
         }
 
         .lightbox-counter {
           position: absolute;
-          bottom: 16px;
+          bottom: 22px;
           left: 50%;
           transform: translateX(-50%);
-          background: rgba(0,0,0,0.6);
-          padding: 5px 12px;
-          border-radius: 40px;
-          font-size: 10px;
+          z-index: 2001;
+          padding: 10px 16px;
+          border-radius: 999px;
+          background: rgba(0,0,0,0.4);
+          border: 1px solid rgba(255,255,255,0.08);
           color: var(--white);
-          z-index: 1001;
+          font-size: 0.86rem;
+          backdrop-filter: blur(12px);
         }
 
-        /* Responsive - Tablet (3 colonnes) */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
           .masonry-grid {
             column-count: 3;
-            column-gap: 18px;
           }
-          .gallery-hero-content h1 {
-            font-size: 2.5rem;
+
+          .lightbox-content {
+            grid-template-columns: 1fr;
+          }
+
+          .lightbox-image img {
+            max-height: 48vh;
           }
         }
 
-        /* Responsive - Mobile (2 colonnes avec tailles conservées) */
         @media (max-width: 768px) {
+          .gallery-hero {
+            min-height: 70vh;
+          }
+
+          .gallery-hero-content {
+            padding-top: 70px;
+          }
+
+          .gallery-section {
+            padding: 72px 0 84px;
+          }
+
           .masonry-grid {
             column-count: 2;
-            column-gap: 14px;
+            column-gap: 16px;
           }
+
           .masonry-item {
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+            border-radius: 20px;
           }
+
           .masonry-item.small img {
-            min-height: 140px;
+            min-height: 180px;
           }
+
           .masonry-item.medium img {
-            min-height: 200px;
+            min-height: 240px;
           }
+
           .masonry-item.large img {
-            min-height: 260px;
+            min-height: 320px;
           }
-          .gallery-hero {
-            min-height: 350px;
+
+          .lightbox {
+            padding: 14px;
           }
-          .gallery-hero-content h1 {
-            font-size: 2rem;
-          }
-          .gallery-hero-content p {
-            font-size: 1rem;
-          }
-          .gallery-hero-stats span {
-            font-size: 10px;
-            padding: 5px 12px;
-          }
+
           .lightbox-content {
-            flex-direction: column;
-            width: 95vw;
-            max-height: 90vh;
+            border-radius: 22px;
+            max-height: 94vh;
           }
-          .lightbox-image img {
-            max-height: 35vh;
-          }
+
           .lightbox-details {
-            max-height: 50vh;
-            padding: 16px;
+            padding: 20px;
           }
+
           .lightbox-header h2 {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
           }
-          .lightbox-nav {
-            width: 36px;
-            height: 36px;
-            font-size: 14px;
-          }
-          .lightbox-prev { left: 10px; }
-          .lightbox-next { right: 10px; }
+
           .lightbox-close {
-            top: 10px;
+            top: 12px;
+            right: 12px;
+            width: 42px;
+            height: 42px;
+          }
+
+          .lightbox-nav {
+            width: 42px;
+            height: 42px;
+          }
+
+          .lightbox-prev {
+            left: 10px;
+          }
+
+          .lightbox-next {
             right: 10px;
-            width: 36px;
-            height: 36px;
+          }
+
+          .lightbox-counter {
+            bottom: 12px;
           }
         }
 
-        /* Responsive - Petit mobile (1 colonne) */
         @media (max-width: 480px) {
+          .container {
+            padding: 0 16px;
+          }
+
+          .hero-badge {
+            font-size: 0.78rem;
+            padding: 8px 14px;
+          }
+
+          .gallery-hero-stats {
+            gap: 10px;
+          }
+
+          .gallery-hero-stats span {
+            font-size: 0.82rem;
+            padding: 10px 14px;
+          }
+
           .masonry-grid {
             column-count: 1;
-            column-gap: 0;
           }
-          .masonry-item {
-            margin-bottom: 16px;
-          }
+
           .masonry-item.small img,
           .masonry-item.medium img,
           .masonry-item.large img {
             min-height: auto;
           }
-          .gallery-hero-content h1 {
-            font-size: 1.5rem;
+
+          .masonry-item-overlay {
+            opacity: 1;
           }
-          .hero-scroll-hint {
-            bottom: 15px;
+
+          .masonry-item-info p {
+            font-size: 0.84rem;
           }
-          .lightbox-header {
-            flex-direction: column;
+
+          .lightbox-details {
+            padding: 16px;
           }
-          .lightbox-actions {
+
+          .comments-card {
+            padding: 16px;
+          }
+
+          .action-btn {
             width: 100%;
             justify-content: center;
-          }
-          .lightbox-header h2 {
-            text-align: center;
-          }
-          .lightbox-location {
-            text-align: center;
-            display: block;
           }
         }
 

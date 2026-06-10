@@ -13,100 +13,99 @@ const AnimatedAlgeriaMap = lazy(() => import('../components/AnimatedAlgeriaMap')
 const FEATURED_TOURS = [
   {
     id: 1,
-    name: "L'Odyssée du Tassili",
-    tagline: "Patrimoine mondial",
-    description: "Trek exclusif de 8 jours au cœur du Tassili n'Ajjer. Gravures rupestres vieilles de 10 000 ans, nuits sous les étoiles.",
-    duration: "8 jours",
-    price: 1290,
-    oldPrice: 1590,
+    name: "Timimoun la Rouge",
+    tagline: "Perle du Sahara",
+    description: "Découvrez les dunes rouges de Timimoun, les ksour traditionnels et les couchers de soleil magiques du Grand Erg Occidental.",
+    duration: "5 jours",
+    price: 45000,
+    oldPrice: 55000,
     rating: 4.9,
     reviews: 234,
-    image: "https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ofb0IQyWwdN7RdPnQ7wFi1unr80uZcHMzA&s",
     badge: "POPULAIRE"
   },
   {
     id: 2,
-    name: "Les Cités Oubliées",
-    tagline: "Architecture millénaire",
-    description: "Découverte des ksour et oasis du M'zab. Rencontre avec les communautés locales.",
-    duration: "6 jours",
-    price: 890,
-    rating: 4.8,
+    name: "Le Tassili n'Ajjer",
+    tagline: "Patrimoine mondial UNESCO",
+    description: "Explorez les célèbres gravures rupestres, les arches rocheuses et les paysages lunaires de Djanet.",
+    duration: "8 jours",
+    price: 85000,
+    rating: 5.0,
     reviews: 178,
-    image: "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
-    badge: "NOUVEAU"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0QfJHCzON4Am5ZZ6OP5mnPLiQhwdDiGUH4A&s",
+    badge: "INCONTOURNABLE"
   },
   {
     id: 3,
-    name: "Les Perles Romaines",
-    tagline: "Entre mer et histoire",
-    description: "Circuit culturel reliant Tipaza, Cherchell et Djemila. Plongée dans l'Afrique romaine.",
-    duration: "5 jours",
-    price: 790,
-    rating: 4.7,
+    name: "Ghardaïa & la Vallée du M'Zab",
+    tagline: "Architecture unique",
+    description: "Partez à la découverte des cités millénaires du M'Zab et de leur patrimoine exceptionnel.",
+    duration: "4 jours",
+    price: 35000,
+    rating: 4.8,
     reviews: 312,
-    image: "https://images.pexels.com/photos/3585320/pexels-photo-3585320.jpeg",
-    badge: "COUP DE CŒUR"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDSh2ht0MFpFw7A-9DBTpYxbY7nGlw_Hn6Qw&s",
+    badge: "CULTURE"
   },
   {
     id: 4,
-    name: "L'Appel des Cimes",
-    tagline: "Randonnée altitude",
-    description: "Ascension du Lalla Khedidja. Traversée des forêts de cèdres et lacs d'altitude.",
-    duration: "5 jours",
-    price: 690,
-    rating: 4.6,
-    reviews: 98,
-    image: "https://images.pexels.com/photos/2113861/pexels-photo-2113861.jpeg"
+    name: "Les Merveilles de Béjaïa",
+    tagline: "Mer & Montagne",
+    description: "Cap Carbon, les Aiguades, les grottes d'Aokas et les magnifiques plages de la côte béjaouie.",
+    duration: "3 jours",
+    price: 25000,
+    rating: 4.9,
+    reviews: 290,
+    image: "https://dia-algerie.com/wp-content/uploads/2021/03/cap-carbon.jpg",
+    badge: "COUP DE CŒUR"
   },
   {
     id: 5,
-    name: "Le Trésor du Hoggar",
-    tagline: "Là où les dieux ont marché",
-    description: "Expédition unique dans le massif du Hoggar. Nuits à Assekrem, rencontre avec les Touaregs.",
+    name: "Le Hoggar & Assekrem",
+    tagline: "Au cœur du désert",
+    description: "Vivez une aventure inoubliable dans les montagnes du Hoggar et admirez le lever du soleil à Assekrem.",
     duration: "9 jours",
-    price: 1590,
-    oldPrice: 1890,
+    price: 95000,
     rating: 5.0,
-    reviews: 67,
-    image: "https://images.pexels.com/photos/417344/pexels-photo-417344.jpeg",
+    reviews: 167,
+    image: "https://www.mosaicnorthafrica.com/wp-content/uploads/2017/01/view-from-assekrem-plateau-in-ahaggar-national-park.jpg",
     badge: "EXPERT"
   },
   {
     id: 6,
-    name: "Les Oasis Secrètes",
-    tagline: "Paradis cachés",
-    description: "Itinéraire hors des sentiers battus à la découverte des oasis les plus reculées.",
-    duration: "7 jours",
-    price: 1090,
-    rating: 4.9,
+    name: "Constantine la Suspendue",
+    tagline: "Ville des ponts",
+    description: "Découvrez les ponts suspendus, le palais Ahmed Bey et l'histoire fascinante de Constantine.",
+    duration: "3 jours",
+    price: 22000,
+    rating: 4.7,
     reviews: 145,
-    image: "https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg",
-    badge: "INSOLITE"
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/5b/31/eb/caption.jpg?w=1200&h=-1&s=1",
+    badge: "HISTOIRE"
   }
 ];
-
 const TESTIMONIALS = [
   {
-    name: "Sarah Meunier",
+    name: "Lilia D",
     role: "Voyageuse",
-    content: "Un professionnalisme rare. Chaque détail est pensé, chaque rencontre est authentique.",
+    content: "Le Tassili n'Ajjer est l'un des plus beaux endroits que j'ai visités. Organisation parfaite.",
     rating: 5,
-    location: "Paris"
+    location: "France"
   },
   {
-    name: "Marc Laurent",
+    name: "Ahmed Benali",
     role: "Voyageur",
-    content: "Les paysages sont spectaculaires, mais c'est l'accueil des populations qui restera gravé.",
-    rating: 5,
-    location: "Lyon"
-  },
-  {
-    name: "Amira Benali",
-    role: "Voyageuse",
-    content: "Bluffée par la qualité des prestations et l'authenticité des rencontres.",
+    content: "Notre séjour à Béjaïa était exceptionnel. Les paysages sont à couper le souffle.",
     rating: 5,
     location: "Alger"
+  },
+  {
+    name: "Laura I",
+    role: "Voyageuse",
+    content: "Timimoun et le Hoggar ont dépassé toutes mes attentes. Une expérience inoubliable.",
+    rating: 5,
+    location: "Belgique"
   }
 ];
 
@@ -216,7 +215,7 @@ const Home = () => {
                     <div className="tour-footer">
                       <div className="tour-price">
                         {tour.oldPrice && <span className="old-price">{tour.oldPrice}€</span>}
-                        <span className="current-price">{tour.price}€</span>
+                        <span className="current-price">{tour.price}DA</span>
                       </div>
                       <button className="btn-outline-small">Réserver</button>
                     </div>
@@ -817,6 +816,173 @@ const Home = () => {
           .newsletter-form { flex-direction: column; }
           .section { padding: 60px 0; }
         }
+          /* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 100px 0 40px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-stats > div {
+    min-width: 90px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+    line-height: 1.3;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+
+  .tours-scroll {
+    gap: 16px;
+    padding-bottom: 10px;
+  }
+
+  .tour-card {
+    min-width: 85vw;
+    max-width: 85vw;
+  }
+
+  .tour-image {
+    height: 200px;
+  }
+
+  .tour-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .tour-footer {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .btn-outline-small {
+    width: 100%;
+  }
+
+  .testimonial-card {
+    padding: 25px 20px;
+  }
+
+  .testimonial-text {
+    font-size: 1rem;
+  }
+
+  .newsletter-card {
+    padding: 30px 20px;
+  }
+
+  .back-to-top {
+    width: 42px;
+    height: 42px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+/* ===== PETITS TELEPHONES ===== */
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .hero-stats .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .hero-stats .stat-label {
+    font-size: 10px;
+  }
+
+  .tour-card {
+    min-width: 92vw;
+    max-width: 92vw;
+  }
+
+  .tour-info {
+    padding: 16px;
+  }
+
+  .tour-header h3 {
+    font-size: 1rem;
+  }
+
+  .current-price {
+    font-size: 1.2rem;
+  }
+
+  .testimonial-card {
+    padding: 20px 15px;
+  }
+
+  .testimonial-quote {
+    font-size: 40px;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+  }
+}
       `}</style>
     </>
   );

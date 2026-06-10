@@ -2,10 +2,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLang } from '../hooks/useLangHook';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+const getLocalizedDest = (dest, pick) => ({
+  ...dest,
+  subtitle: pick(dest.subtitle, dest.subtitle_en),
+  description: pick(dest.description, dest.description_en),
+  bestTime: pick(dest.bestTime, dest.bestTime_en),
+  duration: pick(dest.duration, dest.duration_en),
+  itinerary: dest.itinerary.map((item) => ({
+    ...item,
+    title: pick(item.title, item.title_en),
+    desc: pick(item.desc, item.desc_en),
+  })),
+});
+
 const Destinations = () => {
+  const { t, pick } = useLang();
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -18,8 +33,12 @@ const Destinations = () => {
     
     const handleScroll = () => {
       if (heroRef.current) {
-        heroRef.current.style.opacity = `${1 - window.scrollY / 600}`;
-        heroRef.current.style.transform = `scale(${1 - window.scrollY / 2000})`;
+        heroRef.current.style.opacity = `${Math.max(0, 1 - window.scrollY / 600)}`;
+        if (window.innerWidth > 768) {
+          heroRef.current.style.transform = `scale(${1 - window.scrollY / 2000})`;
+        } else {
+          heroRef.current.style.transform = 'none';
+        }
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -31,41 +50,49 @@ const Destinations = () => {
       id: 1,
       name: "Timgad",
       subtitle: "La Pompéi de l'Afrique",
+      subtitle_en: "The Pompeii of Africa",
       description: "Vestiges romains classés UNESCO parmi les mieux préservés d'Afrique du Nord.",
+      description_en: "UNESCO-listed Roman ruins among the best preserved in North Africa.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHaUG1Z_ZV2gwi8RAX55XRmHI3fqbAziuyrg&s",
       location: "Batna, Aurès",
       bestTime: "Mars - Mai / Sept - Nov",
+      bestTime_en: "Mar - May / Sep - Nov",
       duration: "4 jours",
+      duration_en: "4 days",
       price: "45000",
       rating: 4.8,
       category: "culture",
       activities: ["🏛️ Site antique", "📜 Mosaïques", "🚶 Randonnée"],
       itinerary: [
-        { day: 1, title: "Arrivée à Batna", desc: "Accueil et installation" },
-        { day: 2, title: "Timgad", desc: "Visite complète du site romain" },
-        { day: 3, title: "Exploration", desc: "Thermes et forum" },
-        { day: 4, title: "Départ", desc: "Transfert aéroport" }
+        { day: 1, title: "Arrivée à Batna", title_en: "Arrival in Batna", desc: "Accueil et installation", desc_en: "Welcome and check-in" },
+        { day: 2, title: "Timgad", title_en: "Timgad", desc: "Visite complète du site romain", desc_en: "Full tour of the Roman site" },
+        { day: 3, title: "Exploration", title_en: "Exploration", desc: "Thermes et forum", desc_en: "Baths and forum" },
+        { day: 4, title: "Départ", title_en: "Departure", desc: "Transfert aéroport", desc_en: "Airport transfer" }
       ]
     },
     {
       id: 2,
       name: "Timimoun",
       subtitle: "L'Oasis Rouge",
+      subtitle_en: "The Red Oasis",
       description: "Ksour en terre rouge perchés sur les dunes du Sahara. Un spectacle unique.",
+      description_en: "Red-earth ksour perched on Sahara dunes. A unique spectacle.",
       image: "https://elwatan.dz/wp-content/uploads/storage/43970/TIMIMOUN.jpg",
       location: "Gourara, Grand Sud",
       bestTime: "Octobre - Avril",
+      bestTime_en: "October - April",
       duration: "5 jours",
+      duration_en: "5 days",
       price: "35000",
       rating: 4.9,
       category: "desert",
       activities: ["🏜️ Dunes", "🕌 Ksour", "🌅 Coucher soleil"],
       itinerary: [
-        { day: 1, title: "Arrivée", desc: "Accueil et thé à la menthe" },
-        { day: 2, title: "Ksour", desc: "Découverte des villages rouges" },
-        { day: 3, title: "Dunes", desc: "Trek et coucher de soleil" },
-        { day: 4, title: "Artisanat", desc: "Atelier poterie" },
-        { day: 5, title: "Départ", desc: "Transfert aéroport" }
+        { day: 1, title: "Arrivée", title_en: "Arrival", desc: "Accueil et thé à la menthe", desc_en: "Welcome and mint tea" },
+        { day: 2, title: "Ksour", title_en: "Ksour", desc: "Découverte des villages rouges", desc_en: "Discover the red villages" },
+        { day: 3, title: "Dunes", title_en: "Dunes", desc: "Trek et coucher de soleil", desc_en: "Trek and sunset" },
+        { day: 4, title: "Artisanat", title_en: "Crafts", desc: "Atelier poterie", desc_en: "Pottery workshop" },
+        { day: 5, title: "Départ", title_en: "Departure", desc: "Transfert aéroport", desc_en: "Airport transfer" }
       ]
     },
     
@@ -73,43 +100,51 @@ const Destinations = () => {
       id: 8,
       name: "Taghit",
       subtitle: "L'Oasis Secrète",
+      subtitle_en: "The Secret Oasis",
       description: "Dunes majestueuses et oasis préservée au cœur du Sahara.",
+      description_en: "Majestic dunes and a preserved oasis in the heart of the Sahara.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxC8ziUGgisBwriU1vhBnxClvWqqsfs8c2kA&s",
       location: "Béchar, Sahara",
       bestTime: "Octobre - Mars",
+      bestTime_en: "October - March",
       duration: "4 jours",
+      duration_en: "4 days",
       price: "720",
       rating: 4.8,
       category: "desert",
       activities: ["🏜️ Dunes", "🌴 Palmeraie", "🌅 Coucher soleil"],
       itinerary: [
-        { day: 1, title: "Arrivée", desc: "Accueil" },
-        { day: 2, title: "Dunes", desc: "Trek chamelier" },
-        { day: 3, title: "Oasis", desc: "Visite palmeraie" },
-        { day: 4, title: "Départ", desc: "Transfert" }
+        { day: 1, title: "Arrivée", title_en: "Arrival", desc: "Accueil", desc_en: "Welcome" },
+        { day: 2, title: "Dunes", title_en: "Dunes", desc: "Trek chamelier", desc_en: "Camel trek" },
+        { day: 3, title: "Oasis", title_en: "Oasis", desc: "Visite palmeraie", desc_en: "Palm grove visit" },
+        { day: 4, title: "Départ", title_en: "Departure", desc: "Transfert", desc_en: "Transfer" }
       ]
     },
     {
       id: 3,
       name: "Tassili n'Ajjer",
       subtitle: "Le Musée à Ciel Ouvert",
+      subtitle_en: "The Open-Air Museum",
       description: "Art rupestre préhistorique et paysages lunaires classés UNESCO.",
+      description_en: "Prehistoric rock art and UNESCO-listed lunar landscapes.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx0zN9XuJEhMuuosMwDbWxfkCyikBakJBMIQ&s",
       location: "Djanet, Sahara",
       bestTime: "Novembre - Février",
+      bestTime_en: "November - February",
       duration: "7 jours",
+      duration_en: "7 days",
       price: "12500",
       rating: 4.9,
       category: "nature",
       activities: ["🎨 Art rupestre", "🥾 Trek", "⛺ Bivouac"],
       itinerary: [
-        { day: 1, title: "Arrivée", desc: "Préparation du trek" },
-        { day: 2, title: "Départ", desc: "Route en 4x4" },
-        { day: 3, title: "Gravures", desc: "Art préhistorique" },
-        { day: 4, title: "Canyons", desc: "Trek dans les gorges" },
-        { day: 5, title: "Bivouac", desc: "Nuit sous les étoiles" },
-        { day: 6, title: "Retour", desc: "Route retour" },
-        { day: 7, title: "Départ", desc: "Transfert aéroport" }
+        { day: 1, title: "Arrivée", title_en: "Arrival", desc: "Préparation du trek", desc_en: "Trek preparation" },
+        { day: 2, title: "Départ", title_en: "Departure", desc: "Route en 4x4", desc_en: "4x4 route" },
+        { day: 3, title: "Gravures", title_en: "Engravings", desc: "Art préhistorique", desc_en: "Prehistoric art" },
+        { day: 4, title: "Canyons", title_en: "Canyons", desc: "Trek dans les gorges", desc_en: "Gorge trek" },
+        { day: 5, title: "Bivouac", title_en: "Bivouac", desc: "Nuit sous les étoiles", desc_en: "Night under the stars" },
+        { day: 6, title: "Retour", title_en: "Return", desc: "Route retour", desc_en: "Return route" },
+        { day: 7, title: "Départ", title_en: "Departure", desc: "Transfert aéroport", desc_en: "Airport transfer" }
       ]
     },
  
@@ -117,20 +152,24 @@ const Destinations = () => {
       id: 5,
       name: "Ghardaïa",
       subtitle: "Vallée du M'Zab",
+      subtitle_en: "M'Zab Valley",
       description: "Architecture berbère unique, cités fortifiées et oasis verdoyantes.",
+      description_en: "Unique Berber architecture, fortified cities and lush oases.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgbwTu5UUydTv5_SwzjDeb9f75Fj4J_L9OyA&s",
       location: "Vallée du M'Zab",
       bestTime: "Octobre - Mars",
+      bestTime_en: "October - March",
       duration: "4 jours",
+      duration_en: "4 days",
       price: "48000",
       rating: 4.8,
       category: "culture",
       activities: ["🏛️ Architecture", "🎨 Artisanat", "🕌 Mosquées"],
       itinerary: [
-        { day: 1, title: "Arrivée", desc: "Panorama vallée" },
-        { day: 2, title: "Ksour", desc: "Visite architecture" },
-        { day: 3, title: "Palmeraie", desc: "Atelier local" },
-        { day: 4, title: "Départ", desc: "Transfert" }
+        { day: 1, title: "Arrivée", title_en: "Arrival", desc: "Panorama vallée", desc_en: "Valley panorama" },
+        { day: 2, title: "Ksour", title_en: "Ksour", desc: "Visite architecture", desc_en: "Architecture tour" },
+        { day: 3, title: "Palmeraie", title_en: "Palm grove", desc: "Atelier local", desc_en: "Local workshop" },
+        { day: 4, title: "Départ", title_en: "Departure", desc: "Transfert", desc_en: "Transfer" }
       ]
     },
     
@@ -138,19 +177,23 @@ const Destinations = () => {
       id: 7,
       name: "Djemila",
       subtitle: "La Perle Romaine",
+      subtitle_en: "The Roman Pearl",
       description: "Site archéologique parmi les mieux conservés, classé UNESCO.",
+      description_en: "Among the best-preserved archaeological sites, UNESCO-listed.",
       image: "https://visitalgeria.org/wp-content/uploads/2024/04/Djemila-the-archaeological-zone-of-the-well-preserved-Berber-Roman-ruins-in-North-Africa-Algeria.-UNESCO-World-Heritage-Site-15-1024x536.jpg",
       location: "Sétif",
       bestTime: "Mai - Octobre",
+      bestTime_en: "May - October",
       duration: "3 jours",
+      duration_en: "3 days",
       price: "20000",
       rating: 4.7,
       category: "culture",
       activities: ["🏛️ Ruines", "📜 Mosaïques", "🎭 Théâtre"],
       itinerary: [
-        { day: 1, title: "Arrivée", desc: "Installation" },
-        { day: 2, title: "Djemila", desc: "Visite du site" },
-        { day: 3, title: "Départ", desc: "Transfert" }
+        { day: 1, title: "Arrivée", title_en: "Arrival", desc: "Installation", desc_en: "Check-in" },
+        { day: 2, title: "Djemila", title_en: "Djemila", desc: "Visite du site", desc_en: "Site visit" },
+        { day: 3, title: "Départ", title_en: "Departure", desc: "Transfert", desc_en: "Transfer" }
       ]
     }
   ];
@@ -165,18 +208,27 @@ const Destinations = () => {
   const loadMore = () => setVisibleCount(prev => prev + 4);
   
   const handleBooking = (dest) => {
-    alert(`✨ Réservation ${dest.name} à partir de ${dest.price}€`);
+    alert(`✨ ${t('booking_alert')} ${dest.name} ${t('booking_from')} ${dest.price} DA`);
   };
 
   const categoryIcons = {
     all: '🌍', culture: '🏛️', desert: '🏜️', nature: '🌿', city: '🏙️', history: '📜'
   };
 
+  const categoryLabels = {
+    all: t('filter_all'),
+    culture: t('filter_culture'),
+    desert: t('filter_desert'),
+    nature: t('filter_nature'),
+    city: t('filter_culture'),
+    history: t('filter_culture'),
+  };
+
   if (isLoading) {
     return (
       <div className="loader-wrapper">
         <div className="loader-spinner"></div>
-        <p>Découverte des trésors d'Algérie...</p>
+        <p>{t('dest_loader')}</p>
       </div>
     );
   }
@@ -190,19 +242,18 @@ const Destinations = () => {
         <div className="hero-image"></div>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <span className="hero-tag" data-aos="fade-up">✧ Voyages d'exception ✧</span>
+          <span className="hero-tag" data-aos="fade-up">{t('dest_hero_tag')}</span>
           <h1 className="hero-title" data-aos="fade-up" data-aos-delay="100">
-            L'Algérie<br />
-            <span>autrement</span>
+            {t('dest_hero_title_1')}<br />
+            <span>{t('dest_hero_title_2')}</span>
           </h1>
           <p className="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-            Des expériences uniques au cœur des paysages grandioses<br />
-            et de l'authenticité algérienne.
+            {t('dest_hero_subtitle')}
           </p>
           <div className="hero-stats" data-aos="fade-up" data-aos-delay="300">
-            <div className="stat"><strong>12+</strong><span>Destinations</span></div>
-            <div className="stat"><strong>50+</strong><span>Circuits</span></div>
-            <div className="stat"><strong>4.8★</strong><span>Voyageurs</span></div>
+            <div className="stat"><strong>12+</strong><span>{t('dest_stat_destinations')}</span></div>
+            <div className="stat"><strong>50+</strong><span>{t('dest_stat_tours')}</span></div>
+            <div className="stat"><strong>4.8★</strong><span>{t('dest_stat_travelers')}</span></div>
           </div>
         </div>
         <div className="hero-scroll">↓</div>
@@ -212,8 +263,8 @@ const Destinations = () => {
       <section className="destinations">
         <div className="container">
           <div className="section-header" data-aos="fade-up">
-            <span className="section-subtitle">Nos destinations</span>
-            <h2 className="section-title">Des lieux qui vous <span>marquent</span></h2>
+            <span className="section-subtitle">{t('dest_section_subtitle')}</span>
+            <h2 className="section-title">{t('dest_section_title')} <span>{t('dest_section_title_span')}</span></h2>
             <div className="section-line"></div>
           </div>
 
@@ -225,26 +276,28 @@ const Destinations = () => {
                 className={`filter ${activeFilter === key ? 'active' : ''}`}
                 onClick={() => { setActiveFilter(key); setVisibleCount(6); }}
               >
-                {icon} {key === 'all' ? 'Tous' : key.charAt(0).toUpperCase() + key.slice(1)}
+                {icon} {categoryLabels[key] || key}
               </button>
             ))}
           </div>
 
           {/* Grid */}
           <div className="grid">
-            {displayedDestinations.map((dest, idx) => (
+            {displayedDestinations.map((dest, idx) => {
+              const d = getLocalizedDest(dest, pick);
+              return (
               <div key={dest.id} className="card" data-aos="fade-up" data-aos-delay={idx * 50}>
                 <div className="card-image">
                   <img src={dest.image} alt={dest.name} />
                   <div className="card-overlay"></div>
-                  <div className="card-price">{dest.price}DA<span>/pers.</span></div>
+                  <div className="card-price">{dest.price}DA<span>{t('per_person')}</span></div>
                   <div className="card-rating">★ {dest.rating}</div>
                 </div>
                 <div className="card-content">
                   <div className="card-location">{dest.location}</div>
                   <h3>{dest.name}</h3>
-                  <p className="card-subtitle">{dest.subtitle}</p>
-                  <p className="card-desc">{dest.description}</p>
+                  <p className="card-subtitle">{d.subtitle}</p>
+                  <p className="card-desc">{d.description}</p>
                   
                   <div className="card-activities">
                     {dest.activities.map((act, i) => (
@@ -253,8 +306,8 @@ const Destinations = () => {
                   </div>
                   
                   <div className="card-info">
-                    <span>📅 {dest.bestTime}</span>
-                    <span>⏱️ {dest.duration}</span>
+                    <span>📅 {d.bestTime}</span>
+                    <span>⏱️ {d.duration}</span>
                   </div>
                   
                   <div className="card-buttons">
@@ -262,17 +315,17 @@ const Destinations = () => {
                       className="btn-outline" 
                       onClick={() => setSelectedItinerary(selectedItinerary === dest.id ? null : dest.id)}
                     >
-                      {selectedItinerary === dest.id ? '▲ Masquer' : '▼ Itinéraire'}
+                      {selectedItinerary === dest.id ? t('btn_hide') : t('btn_itinerary')}
                     </button>
-                    <button className="btn-primary" onClick={() => handleBooking(dest)}>Réserver →</button>
+                    <button className="btn-primary" onClick={() => handleBooking(dest)}>{t('btn_book')}</button>
                   </div>
                   
                   {selectedItinerary === dest.id && (
                     <div className="itinerary">
-                      <h4>🗺️ Itinéraire détaillé</h4>
-                      {dest.itinerary.map((item, i) => (
+                      <h4>{t('itinerary_title')}</h4>
+                      {d.itinerary.map((item, i) => (
                         <div key={i} className="itinerary-item">
-                          <span className="day">J{i+1}</span>
+                          <span className="day">{t('day_label')}{i+1}</span>
                           <div>
                             <strong>{item.title}</strong>
                             <p>{item.desc}</p>
@@ -283,12 +336,12 @@ const Destinations = () => {
                   )}
                 </div>
               </div>
-            ))}
+            );})}
           </div>
 
           {hasMore && (
             <div className="load-more" data-aos="fade-up">
-              <button onClick={loadMore}>Charger plus <span>↓</span></button>
+              <button onClick={loadMore}>{t('load_more')} <span>↓</span></button>
             </div>
           )}
         </div>
@@ -300,23 +353,23 @@ const Destinations = () => {
           <div className="features-grid">
             <div className="feature" data-aos="fade-up">
               <div className="feature-icon">🏆</div>
-              <h3>Experts locaux</h3>
-              <p>Guides passionnés qui connaissent chaque recoin</p>
+              <h3>{t('feature_experts_title')}</h3>
+              <p>{t('feature_experts_desc')}</p>
             </div>
             <div className="feature" data-aos="fade-up" data-aos-delay="100">
               <div className="feature-icon">✧</div>
-              <h3>Sur mesure</h3>
-              <p>Itinéraires adaptés à vos envies</p>
+              <h3>{t('feature_custom_title')}</h3>
+              <p>{t('feature_custom_desc')}</p>
             </div>
             <div className="feature" data-aos="fade-up" data-aos-delay="200">
               <div className="feature-icon">♡</div>
-              <h3>Authentique</h3>
-              <p>Hors des sentiers battus</p>
+              <h3>{t('feature_authentic_title')}</h3>
+              <p>{t('feature_authentic_desc')}</p>
             </div>
             <div className="feature" data-aos="fade-up" data-aos-delay="300">
               <div className="feature-icon">🕊️</div>
-              <h3>Assistance 24/7</h3>
-              <p>Une équipe à votre écoute</p>
+              <h3>{t('feature_support_title')}</h3>
+              <p>{t('feature_support_desc')}</p>
             </div>
           </div>
         </div>
@@ -325,11 +378,11 @@ const Destinations = () => {
       {/* CTA */}
       <section className="cta">
         <div className="cta-content">
-          <span className="cta-tag">✧ Offre découverte ✧</span>
-          <h2>Prêt à vivre l'aventure ?</h2>
-          <p>-15% sur votre premier circuit</p>
-          <button className="cta-button" onClick={() => alert('Contactez-nous')}>
-            Réserver maintenant →
+          <span className="cta-tag">{t('cta_tag')}</span>
+          <h2>{t('cta_title')}</h2>
+          <p>{t('cta_subtitle')}</p>
+          <button className="cta-button" onClick={() => alert(t('cta_alert'))}>
+            {t('cta_button')}
           </button>
         </div>
       </section>
@@ -342,6 +395,12 @@ const Destinations = () => {
           margin: 0;
           padding: 0;
           box-sizing: border-box;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100%;
+          overscroll-behavior-x: none;
         }
 
         /* LOADER */
@@ -372,12 +431,15 @@ const Destinations = () => {
         .hero {
           position: relative;
           min-height: 90vh;
+          min-height: 90svh;
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
           overflow: hidden;
           color: white;
+          width: 100%;
+          max-width: 100%;
         }
         .hero-image {
           position: absolute;
@@ -807,6 +869,8 @@ const Destinations = () => {
         @media (max-width: 700px) {
           .hero-stats {
             gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
           }
           .features-grid {
             grid-template-columns: 1fr;
@@ -816,6 +880,18 @@ const Destinations = () => {
           }
           .hero-title {
             font-size: 36px;
+            word-break: break-word;
+          }
+          .filters {
+            justify-content: flex-start;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 8px;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+          }
+          .container {
+            padding: 0 16px;
           }
         }
         @media (max-width: 480px) {

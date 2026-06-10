@@ -2,10 +2,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLang } from '../hooks/useLangHook';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Gallery = () => {
+  const { t, pick } = useLang();
   const [selectedImage, setSelectedImage] = useState(null);
   const [loadedImages, setLoadedImages] = useState({});
   const [commentText, setCommentText] = useState('');
@@ -16,8 +18,11 @@ const Gallery = () => {
       id: 1,
       src: "/quad.jpeg",
       title: "Randonnée en Quad",
+      title_en: "Quad Adventure",
       location: "Sahara Algérien",
+      location_en: "Algerian Sahara",
       description: "Aventure en quad à travers les dunes du Sahara algérien",
+      description_en: "Quad adventure through the dunes of the Algerian Sahara",
       size: "large",
       likes: 234,
       dislikes: 12,
@@ -27,8 +32,11 @@ const Gallery = () => {
       id: 2,
       src: "/parasailinf.jpeg",
       title: "Parachute Ascensionnel",
+      title_en: "Parasailing",
       location: "Côte Algérienne",
+      location_en: "Algerian Coast",
       description: "Vue panoramique exceptionnelle sur la mer Méditerranée",
+      description_en: "Exceptional panoramic view over the Mediterranean Sea",
       size: "medium",
       likes: 189,
       dislikes: 5,
@@ -38,8 +46,11 @@ const Gallery = () => {
       id: 3,
       src: "/i1.jpeg",
       title: "Excursion en Quad",
+      title_en: "Quad Excursion",
       location: "Algérie",
+      location_en: "Algeria",
       description: "Découverte des paysages désertiques lors d'une sortie en quad",
+      description_en: "Discover desert landscapes on a quad outing",
       size: "small",
       likes: 312,
       dislikes: 8,
@@ -49,8 +60,11 @@ const Gallery = () => {
       id: 4,
       src: "/jetski.jpeg",
       title: "Jet Ski",
+      title_en: "Jet Ski",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Sensations fortes sur les eaux cristallines de la Méditerranée",
+      description_en: "Thrills on the crystal-clear waters of the Mediterranean",
       size: "large",
       likes: 456,
       dislikes: 15,
@@ -60,8 +74,11 @@ const Gallery = () => {
       id: 5,
       src: "/quad.jpeg",
       title: "Aventure dans les Dunes",
+      title_en: "Dune Adventure",
       location: "Algérie",
+      location_en: "Algeria",
       description: "Parcours en quad à travers les magnifiques dunes dorées",
+      description_en: "Quad ride through magnificent golden dunes",
       size: "medium",
       likes: 278,
       dislikes: 9,
@@ -71,8 +88,11 @@ const Gallery = () => {
       id: 6,
       src: "/image.png",
       title: "Balade à Cheval",
+      title_en: "Horseback Riding",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Promenade à cheval au cœur des paysages naturels de Béjaïa",
+      description_en: "Horseback ride through the natural landscapes of Béjaïa",
       size: "small",
       likes: 167,
       dislikes: 6,
@@ -82,8 +102,11 @@ const Gallery = () => {
       id: 7,
       src: "/i.jpg",
       title: "Sortie en Bateau",
+      title_en: "Boat Trip",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Excursion en bateau pour découvrir la côte et les criques de Béjaïa",
+      description_en: "Boat excursion to discover the coast and coves of Béjaïa",
       size: "large",
       likes: 523,
       dislikes: 11,
@@ -93,8 +116,11 @@ const Gallery = () => {
       id: 8,
       src: "/quad1.jpeg",
       title: "Circuit en Quad",
+      title_en: "Quad Tour",
       location: "Algérie",
+      location_en: "Algeria",
       description: "Expérience unique au cœur des paysages sahariens",
+      description_en: "Unique experience in the heart of Saharan landscapes",
       size: "medium",
       likes: 198,
       dislikes: 4,
@@ -104,8 +130,11 @@ const Gallery = () => {
       id: 9,
       src: "/vol parapente.jpg",
       title: "Vol en Parapente",
+      title_en: "Paragliding Flight",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Admirez les paysages de Béjaïa depuis les airs",
+      description_en: "Admire the landscapes of Béjaïa from the sky",
       size: "small",
       likes: 145,
       dislikes: 3,
@@ -115,8 +144,11 @@ const Gallery = () => {
       id: 10,
       src: "/grotte.jpg",
       title: "Grottes de Béjaïa",
+      title_en: "Béjaïa Caves",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Découverte des magnifiques grottes naturelles de Béjaïa",
+      description_en: "Discover the magnificent natural caves of Béjaïa",
       size: "large",
       likes: 345,
       dislikes: 7,
@@ -126,8 +158,11 @@ const Gallery = () => {
       id: 11,
       src: "/dj.jpeg",
       title: "Ferme de Djerba",
+      title_en: "Djerba Farm",
       location: "Tazeboujt - Béjaïa",
+      location_en: "Tazeboujt - Béjaïa",
       description: "Ferme touristique offrant un cadre naturel paisible et authentique",
+      description_en: "Tourist farm offering a peaceful and authentic natural setting",
       size: "medium",
       likes: 156,
       dislikes: 2,
@@ -137,8 +172,11 @@ const Gallery = () => {
       id: 12,
       src: "/paddle.jpeg",
       title: "Paddle en Mer",
+      title_en: "Sea Paddleboarding",
       location: "Béjaïa",
+      location_en: "Béjaïa",
       description: "Activité paddle sur les eaux turquoise de la côte béjaouie",
+      description_en: "Paddleboarding on the turquoise waters of the Béjaïa coast",
       size: "small",
       likes: 234,
       dislikes: 5,
@@ -224,34 +262,31 @@ const Gallery = () => {
 
         <div className="container">
           <div className="gallery-hero-content" data-aos="fade-up">
-            <span className="hero-badge">Explorez l'Algerie autrement</span>
+            <span className="hero-badge">{t('gallery_hero_badge')}</span>
             <h1>
-              Galerie <span className="text-gold">Photographique</span>
+              {t('gallery_hero_title')} <span className="text-gold">{t('gallery_hero_title_span')}</span>
             </h1>
-            <p>
-              Une immersion visuelle a travers les paysages, les villes et les
-              tresors naturels de l'Algerie.
-            </p>
+            <p>{t('gallery_hero_desc')}</p>
 
             <div className="gallery-hero-stats">
               <span>
                 <i className="fas fa-image"></i>
-                {galleryImages.length}+ Photos
+                {galleryImages.length}+ {t('gallery_photos')}
               </span>
               <span>
                 <i className="fas fa-heart"></i>
-                {galleryImages.reduce((sum, img) => sum + img.likes, 0)} Likes
+                {galleryImages.reduce((sum, img) => sum + img.likes, 0)} {t('gallery_likes')}
               </span>
               <span>
                 <i className="fas fa-comment"></i>
-                {galleryImages.reduce((sum, img) => sum + img.comments.length, 0)} Commentaires
+                {galleryImages.reduce((sum, img) => sum + img.comments.length, 0)} {t('gallery_comments')}
               </span>
             </div>
           </div>
         </div>
 
         <div className="hero-scroll-hint">
-          <span>Scroller pour decouvrir</span>
+          <span>{t('gallery_scroll_hint')}</span>
           <i className="fas fa-chevron-down"></i>
         </div>
       </section>
@@ -259,11 +294,9 @@ const Gallery = () => {
       <section className="gallery-section">
         <div className="container">
           <div className="section-heading" data-aos="fade-up">
-            <span className="section-kicker">Collection visuelle</span>
-            <h2>Moments captures a travers le pays</h2>
-            <p>
-              Une selection d'instants uniques entre desert, mer, patrimoine et montagnes.
-            </p>
+            <span className="section-kicker">{t('gallery_section_kicker')}</span>
+            <h2>{t('gallery_section_title')}</h2>
+            <p>{t('gallery_section_desc')}</p>
           </div>
 
           <div className="masonry-grid">
@@ -290,12 +323,12 @@ const Gallery = () => {
                 />
 
                 <div className="masonry-item-overlay">
-                  <div className="masonry-top-tag">{image.location}</div>
+                  <div className="masonry-top-tag">{pick(image.location, image.location_en)}</div>
 
                   <div className="masonry-item-info">
                     <div>
-                      <h3>{image.title}</h3>
-                      <p>{image.description}</p>
+                      <h3>{pick(image.title, image.title_en)}</h3>
+                      <p>{pick(image.description, image.description_en)}</p>
                     </div>
 
                     <div className="masonry-item-stats">
@@ -342,9 +375,9 @@ const Gallery = () => {
             <div className="lightbox-details">
               <div className="lightbox-header">
                 <div>
-                  <span className="lightbox-chip">{currentImage.location}</span>
-                  <h2>{currentImage.title}</h2>
-                  <p className="lightbox-description">{currentImage.description}</p>
+                  <span className="lightbox-chip">{pick(currentImage.location, currentImage.location_en)}</span>
+                  <h2>{pick(currentImage.title, currentImage.title_en)}</h2>
+                  <p className="lightbox-description">{pick(currentImage.description, currentImage.description_en)}</p>
                 </div>
 
                 <div className="lightbox-actions">
@@ -367,12 +400,12 @@ const Gallery = () => {
               <div className="comments-card">
                 <h3>
                   <i className="fas fa-comments"></i>
-                  Commentaires ({currentImage.comments.length})
+                  {t('gallery_comments_title')} ({currentImage.comments.length})
                 </h3>
 
                 <div className="add-comment">
                   <textarea
-                    placeholder="Partagez votre avis..."
+                    placeholder={t('gallery_comment_placeholder')}
                     value={commentText}
                     onChange={(e) => setCommentText(e.target.value)}
                     rows="3"
@@ -382,7 +415,7 @@ const Gallery = () => {
                     onClick={() => handleAddComment(currentImage.id)}
                     disabled={!commentText.trim()}
                   >
-                    Envoyer <i className="fas fa-paper-plane"></i>
+                    {t('gallery_send')} <i className="fas fa-paper-plane"></i>
                   </button>
                 </div>
 
@@ -465,10 +498,14 @@ const Gallery = () => {
           background:
             radial-gradient(circle at top left, rgba(212,175,55,0.06), transparent 25%),
             linear-gradient(180deg, #0b0b0f 0%, #101118 100%);
+          overflow-x: hidden;
+          max-width: 100%;
+          overscroll-behavior-x: none;
         }
 
         .container {
           width: min(100%, 1440px);
+          max-width: 100%;
           margin: 0 auto;
           padding: 0 24px;
         }
@@ -480,11 +517,14 @@ const Gallery = () => {
         .gallery-hero {
           position: relative;
           min-height: 78vh;
+          min-height: 78svh;
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           isolation: isolate;
+          width: 100%;
+          max-width: 100%;
         }
 
         .gallery-hero-bg {
@@ -492,8 +532,8 @@ const Gallery = () => {
           inset: 0;
           background:
             linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)),
-            url('[images.pexels.com](https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg)') center/cover no-repeat;
-          transform: scale(1.08);
+            url('https://images.pexels.com/photos/2567327/pexels-photo-2567327.jpeg') center/cover no-repeat;
+          transform: scale(1.04);
           animation: heroZoom 24s ease-in-out infinite;
         }
 
@@ -530,8 +570,8 @@ const Gallery = () => {
         }
 
         @keyframes heroZoom {
-          0%, 100% { transform: scale(1.06); }
-          50% { transform: scale(1.12); }
+          0%, 100% { transform: scale(1.02); }
+          50% { transform: scale(1.06); }
         }
 
         .gallery-hero-content {
@@ -658,6 +698,8 @@ const Gallery = () => {
         .masonry-grid {
           column-count: 4;
           column-gap: 22px;
+          width: 100%;
+          max-width: 100%;
         }
 
         .masonry-item {
@@ -807,6 +849,8 @@ const Gallery = () => {
           align-items: center;
           justify-content: center;
           padding: 24px;
+          overflow-y: auto;
+          overscroll-behavior: contain;
         }
 
         .lightbox-content {
@@ -819,6 +863,7 @@ const Gallery = () => {
           background: rgba(17, 19, 26, 0.92);
           border: 1px solid rgba(255,255,255,0.08);
           box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+          margin: auto;
         }
 
         .lightbox-image {
@@ -1146,20 +1191,47 @@ const Gallery = () => {
 
         @media (max-width: 768px) {
           .gallery-hero {
-            min-height: 70vh;
+            min-height: 70svh;
+          }
+
+          .gallery-hero-bg {
+            transform: none;
+            animation: none;
           }
 
           .gallery-hero-content {
-            padding-top: 70px;
+            padding: 80px 16px 40px;
+          }
+
+          .gallery-hero-content h1 {
+            font-size: clamp(2rem, 9vw, 2.8rem);
+            word-break: break-word;
+          }
+
+          .gallery-hero-stats {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+          }
+
+          .gallery-hero-stats span {
+            justify-content: center;
+            width: 100%;
+          }
+
+          .hero-scroll-hint {
+            display: none;
           }
 
           .gallery-section {
-            padding: 72px 0 84px;
+            padding: 60px 0 72px;
           }
 
           .masonry-grid {
-            column-count: 2;
-            column-gap: 16px;
+            column-count: 1;
+            column-gap: 0;
           }
 
           .masonry-item {
@@ -1167,45 +1239,116 @@ const Gallery = () => {
             border-radius: 20px;
           }
 
-          .masonry-item.small img {
-            min-height: 180px;
-          }
-
-          .masonry-item.medium img {
-            min-height: 240px;
-          }
-
+          .masonry-item.small img,
+          .masonry-item.medium img,
           .masonry-item.large img {
-            min-height: 320px;
+            min-height: 220px;
+            max-height: 420px;
+            object-fit: cover;
+          }
+
+          .masonry-item-overlay {
+            opacity: 1;
+          }
+
+          .masonry-item:hover {
+            transform: none;
           }
 
           .lightbox {
-            padding: 14px;
+            padding: 10px;
+            align-items: flex-start;
           }
 
           .lightbox-content {
-            border-radius: 22px;
-            max-height: 94vh;
+            border-radius: 20px;
+            max-height: none;
+            margin-top: 48px;
+            margin-bottom: 16px;
+          }
+
+          .lightbox-image img {
+            max-height: 42vh;
+            border-radius: 0;
           }
 
           .lightbox-details {
             padding: 20px;
+            max-height: none;
+            overflow-y: visible;
           }
 
           .lightbox-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
+            word-break: break-word;
           }
 
           .lightbox-close {
-            top: 12px;
-            right: 12px;
-            width: 42px;
-            height: 42px;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
           }
 
           .lightbox-nav {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
+            top: auto;
+            bottom: 18px;
+            transform: none;
+          }
+
+          .lightbox-prev {
+            left: 16px;
+          }
+
+          .lightbox-next {
+            right: 16px;
+          }
+
+          .lightbox-counter {
+            bottom: 24px;
+          }
+
+          .comments-list {
+            max-height: 220px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .container {
+            padding: 0 14px;
+          }
+
+          .hero-badge {
+            font-size: 0.75rem;
+            padding: 8px 12px;
+          }
+
+          .gallery-hero-stats span {
+            font-size: 0.8rem;
+            padding: 10px 12px;
+          }
+
+          .masonry-item-info p {
+            font-size: 0.84rem;
+          }
+
+          .lightbox-details {
+            padding: 14px;
+          }
+
+          .comments-card {
+            padding: 14px;
+          }
+
+          .lightbox-actions {
+            flex-direction: column;
+          }
+
+          .action-btn {
+            width: 100%;
+            justify-content: center;
           }
 
           .lightbox-prev {
@@ -1215,60 +1358,12 @@ const Gallery = () => {
           .lightbox-next {
             right: 10px;
           }
-
-          .lightbox-counter {
-            bottom: 12px;
-          }
         }
 
-        @media (max-width: 480px) {
-          .container {
-            padding: 0 16px;
-          }
-
-          .hero-badge {
-            font-size: 0.78rem;
-            padding: 8px 14px;
-          }
-
-          .gallery-hero-stats {
-            gap: 10px;
-          }
-
-          .gallery-hero-stats span {
-            font-size: 0.82rem;
-            padding: 10px 14px;
-          }
-
+        @media (min-width: 769px) and (max-width: 1024px) {
           .masonry-grid {
-            column-count: 1;
-          }
-
-          .masonry-item.small img,
-          .masonry-item.medium img,
-          .masonry-item.large img {
-            min-height: auto;
-          }
-
-          .masonry-item-overlay {
-            opacity: 1;
-          }
-
-          .masonry-item-info p {
-            font-size: 0.84rem;
-          }
-
-          .lightbox-details {
-            padding: 16px;
-          }
-
-          .comments-card {
-            padding: 16px;
-          }
-
-          .action-btn {
-            width: 100%;
-            justify-content: center;
+            column-count: 2;
+            column-gap: 18px;
           }
         }
 

@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLang } from '../hooks/useLangHook';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Contact = () => {
+  const { t } = useLang();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -130,39 +132,30 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Icons.location />,
-      title: "Adresse",
+      title: t('contact_info_address'),
       details: ["Russel en face Stade", "Bejaia, 06000", "Algérie"]
     },
     {
       icon: <Icons.phone />,
-      title: "Téléphone",
+      title: t('contact_info_phone'),
       details: ["00213 557 664 089"]
     },
     {
       icon: <Icons.email />,
-      title: "Email",
+      title: t('contact_info_email'),
       details: ["visit.bougie@gmail.com", "Algeriatravel@gmail.com"]
     },
     {
       icon: <Icons.clock />,
-      title: "Horaires",
-      details: ["7/7j"]
+      title: t('contact_info_hours'),
+      details: ["7/7"]
     }
   ];
 
   const faqs = [
-    {
-      question: "Quel est le meilleur moment pour voyager ?",
-      answer: "Le printemps (mars-mai) et l'automne (septembre-novembre) offrent les meilleures conditions climatiques. Le Sahara est idéal d'octobre à avril."
-    },
-    {
-      question: "Les guides parlent-ils français ?",
-      answer: "Oui, tous nos guides sont francophones et connaissent parfaitement leur région. Ils partagent avec passion l'histoire et les traditions locales."
-    },
-    {
-      question: "Quels sont les moyens de paiement acceptés ?",
-      answer: "Nous acceptons les cartes bancaires, les virements internationaux, Paypal et les paiements en espèces (EUR/DZD) à votre arrivée."
-    }
+    { question: t('faq_q1'), answer: t('faq_a1') },
+    { question: t('faq_q2'), answer: t('faq_a2') },
+    { question: t('faq_q3'), answer: t('faq_a3') },
   ];
 
   return (
@@ -172,8 +165,8 @@ const Contact = () => {
       <section className="contact-hero">
         <div className="contact-hero-overlay"></div>
         <div className="contact-hero-content" data-aos="fade-up">
-          <h1>Contactez<span className="text-gold">-nous</span></h1>
-          <p>Une question ? Un projet de voyage ? Notre équipe est à votre écoute</p>
+          <h1>{t('contact_hero_title')}<span className="text-gold">{t('contact_hero_title_span')}</span></h1>
+          <p>{t('contact_hero_desc')}</p>
         </div>
       </section>
 
@@ -181,94 +174,94 @@ const Contact = () => {
         <div className="container">
           <div className="contact-grid">
             <div className="contact-form-wrapper" data-aos="fade-right">
-              <h2>Envoyez-nous <span className="text-gold">un message</span></h2>
-              <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+              <h2>{t('contact_form_title')} <span className="text-gold">{t('contact_form_title_span')}</span></h2>
+              <p>{t('contact_form_desc')}</p>
               
               {submitSuccess && (
                 <div className="success-message">
                   <Icons.check />
-                  <p>Message envoyé avec succès ! Nous vous répondrons sous 24h.</p>
+                  <p>{t('contact_success')}</p>
                 </div>
               )}
               
               <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-row">
                   <div className="form-group">
-                    <label><Icons.user /> Nom complet *</label>
+                    <label><Icons.user /> {t('contact_label_name')}</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Votre nom"
+                      placeholder={t('contact_placeholder_name')}
                     />
                   </div>
                   <div className="form-group">
-                    <label><Icons.envelope /> Email *</label>
+                    <label><Icons.envelope /> {t('contact_label_email')}</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="votre@email.com"
+                      placeholder={t('contact_placeholder_email')}
                     />
                   </div>
                 </div>
                 
                 <div className="form-row">
                   <div className="form-group">
-                    <label><Icons.phone /> Téléphone</label>
+                    <label><Icons.phone /> {t('contact_label_phone')}</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+213 5X XX XX XX"
+                      placeholder={t('contact_placeholder_phone')}
                     />
                   </div>
                   <div className="form-group">
-                    <label><Icons.tag /> Sujet *</label>
+                    <label><Icons.tag /> {t('contact_label_subject')}</label>
                     <select
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Sélectionnez un sujet</option>
-                      <option value="reservation">Réservation</option>
-                      <option value="information">Demande d'information</option>
-                      <option value="devis">Demande de devis</option>
-                      <option value="autres">Autres</option>
+                      <option value="">{t('contact_subject_default')}</option>
+                      <option value="reservation">{t('contact_subject_reservation')}</option>
+                      <option value="information">{t('contact_subject_info')}</option>
+                      <option value="devis">{t('contact_subject_quote')}</option>
+                      <option value="autres">{t('contact_subject_other')}</option>
                     </select>
                   </div>
                 </div>
                 
                 <div className="form-group">
-                  <label><Icons.comment /> Message *</label>
+                  <label><Icons.comment /> {t('contact_label_message')}</label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     rows="5"
-                    placeholder="Décrivez votre projet de voyage..."
+                    placeholder={t('contact_placeholder_message')}
                   ></textarea>
                 </div>
                 
                 <button type="submit" className="submit-btn" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    <>⏳ Envoi en cours...</>
+                    <>⏳ {t('contact_sending')}</>
                   ) : (
-                    <><Icons.send /> Envoyer le message</>
+                    <><Icons.send /> {t('contact_send')}</>
                   )}
                 </button>
               </form>
             </div>
             
             <div className="contact-info-wrapper" data-aos="fade-left">
-              <h2>Nos <span className="text-gold">coordonnées</span></h2>
+              <h2>{t('contact_info_title')} <span className="text-gold">{t('contact_info_title_span')}</span></h2>
               
               <div className="info-grid">
                 {contactInfo.map((info, index) => (
@@ -287,7 +280,7 @@ const Contact = () => {
               </div>
               
               <div className="map-card">
-                <h3><Icons.map /> Notre emplacement</h3>
+                <h3><Icons.map /> {t('contact_map_title')}</h3>
                 <div className="map-placeholder">
                   <iframe
                     src="https://www.google.com/maps?q=Bejaia%2C%20Alg%C3%A9rie&output=embed"
@@ -308,9 +301,9 @@ const Contact = () => {
       <section className="faq-section">
         <div className="container">
           <div className="section-header" data-aos="fade-up">
-            <span className="section-badge">Foire aux questions</span>
-            <h2>Questions <span className="text-gold">fréquentes</span></h2>
-            <p>Toutes les réponses à vos interrogations sur nos services</p>
+            <span className="section-badge">{t('contact_faq_badge')}</span>
+            <h2>{t('contact_faq_title')} <span className="text-gold">{t('contact_faq_title_span')}</span></h2>
+            <p>{t('contact_faq_desc')}</p>
           </div>
           
           <div className="faq-grid">
@@ -333,11 +326,11 @@ const Contact = () => {
             <div className="newsletter-icon">
               <Icons.paperPlane />
             </div>
-            <h3>Restez informés</h3>
-            <p>Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives</p>
+            <h3>{t('contact_newsletter_title')}</h3>
+            <p>{t('contact_newsletter_desc')}</p>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="Votre adresse email" required />
-              <button type="submit">S'abonner</button>
+              <input type="email" placeholder={t('contact_newsletter_placeholder')} required />
+              <button type="submit">{t('contact_newsletter_btn')}</button>
             </form>
           </div>
         </div>
@@ -346,6 +339,12 @@ const Contact = () => {
       <Footer />
 
       <style>{`
+        body {
+          overflow-x: hidden;
+          max-width: 100%;
+          overscroll-behavior-x: none;
+        }
+
         .text-gold {
           color: #c6a43b;
         }
@@ -790,7 +789,7 @@ const Contact = () => {
         }
           @media (max-width: 1024px) {
   .contact-grid {
-    grid-template-columns: 1fr 1fr;  /* Garde 2 colonnes sur tablette */
+    grid-template-columns: 1fr;
     gap: 30px;
   }
   
@@ -815,7 +814,7 @@ const Contact = () => {
 
 @media (max-width: 768px) {
   .contact-grid {
-    grid-template-columns: 1fr 1fr;  /* GARDE 2 COLONNES même sur mobile */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   

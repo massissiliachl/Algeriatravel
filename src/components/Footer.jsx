@@ -1,12 +1,15 @@
 import React from 'react';
+import { useLang } from '../hooks/useLangHook';
 
 const Footer = () => {
+  const { t } = useLang();
+
   const handleNewsletter = () => {
     const email = document.getElementById('newsletterEmail').value;
-    if(email && email.includes('@')) {
-      alert('✅ Merci pour votre inscription !');
+    if (email && email.includes('@')) {
+      alert(`✅ ${t('footer_newsletter_success')}`);
     } else {
-      alert('Veuillez entrer un email valide.');
+      alert(t('footer_newsletter_invalid'));
     }
   };
 
@@ -26,27 +29,27 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <strong>Liens rapides</strong><br />
-            <a href="#">Circuits Sahara</a><br />
-            <a href="#">Côte Méditerranée</a><br />
-            <a href="#">Assistance visa</a>
+            <strong>{t('footer_quick_links')}</strong><br />
+            <a href="#">{t('footer_link_sahara')}</a><br />
+            <a href="#">{t('footer_link_coast')}</a><br />
+            <a href="#">{t('footer_link_visa')}</a>
           </div>
           <div>
-            <strong>Apps mobiles</strong><br />
+            <strong>{t('footer_mobile_apps')}</strong><br />
             <i className="fab fa-apple"></i> App Store<br />
             <i className="fab fa-android"></i> Google Play
           </div>
           <div className="newsletter">
-            <strong><i className="fas fa-envelope-open-text"></i> Newsletter</strong>
+            <strong><i className="fas fa-envelope-open-text"></i> {t('footer_newsletter')}</strong>
             <div className="newsletter-input">
-              <input type="email" placeholder="Votre email" id="newsletterEmail" />
-              <button onClick={handleNewsletter}>S'inscrire</button>
+              <input type="email" placeholder={t('footer_email_placeholder')} id="newsletterEmail" />
+              <button onClick={handleNewsletter}>{t('footer_subscribe')}</button>
             </div>
           </div>
         </div>
         <hr style={{ margin: '40px 0 20px', borderColor: '#2a5a6e' }} />
         <p style={{ textAlign: 'center' }}>
-          © 2026 Algeria Travel 
+          © 2026 Algeria Travel — {t('footer_rights')}
         </p>
       </div>
     </footer>

@@ -953,11 +953,19 @@ const Home = () => {
   .hero-stats .stat-label {
     font-size: 10px;
   }
+.tour-card {
+  flex: 0 0 auto;
+        /* au lieu de min-width */
+  scroll-snap-align: start;
 
-  .tour-card {
-    min-width: 92vw;
-    max-width: 92vw;
-  }
+    width: 85vw;
+  
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
 
   .tour-info {
     padding: 16px;
@@ -1007,8 +1015,14 @@ html, body {
 }
 
 .tours-scroll {
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px 24px;
+  flex: 1;
+
+  scroll-snap-type: x mandatory; /* 👈 important */
 }
       `}</style>
     </>
